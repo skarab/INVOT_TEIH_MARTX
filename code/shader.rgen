@@ -510,6 +510,7 @@ void main()
 			wsPositionUp = wsPosition + wsCameraUp * 0.01;
 		}
 
+		// NOTE: may surely be a normalize, added this to debug when reached shader limit..
 		vec3 wsNormal = cross(wsPositionRight-wsPosition, wsPositionUp-wsPosition);
 		float l = length(wsNormal) + 0.00001;
 		wsNormal /= l;
