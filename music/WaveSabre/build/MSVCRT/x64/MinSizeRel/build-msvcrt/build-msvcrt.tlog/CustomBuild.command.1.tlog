@@ -1,0 +1,28 @@
+^D:\PROG\INTRO\MUSIC\WAVESABRE\MSVCRT\MSVCRT.DEF
+setlocal
+lib.exe /machine:x64 /def:D:/prog/intro/music/WaveSabre/MSVCRT/msvcrt.def /out:D:/prog/intro/music/WaveSabre/build/MSVCRT/msvcrt.lib
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\PROG\INTRO\MUSIC\WAVESABRE\BUILD\CMAKEFILES\BEF0424EAA1D78553881E2A65E2426CE\BUILD-MSVCRT.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\PROG\INTRO\MUSIC\WAVESABRE\MSVCRT\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/prog/intro/music/WaveSabre -BD:/prog/intro/music/WaveSabre/build --check-stamp-file D:/prog/intro/music/WaveSabre/build/MSVCRT/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,0 +1,4 @@
+LIBRARY Scissor
+EXPORTS
+VSTPluginMain
+main=VSTPluginMain

@@ -1,0 +1,8 @@
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\MinSizeRel\WaveSabreConvert.dll
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\MinSizeRel\Monad.FLParser.dll
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\obj\x64\MinSizeRel\WaveSabreConvert.csproj.AssemblyReference.cache
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\obj\x64\MinSizeRel\WaveSabreConvert.Properties.Resources.resources
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\obj\x64\MinSizeRel\WaveSabreConvert.csproj.GenerateResource.cache
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\obj\x64\MinSizeRel\WaveSabreConvert.csproj.CoreCompileInputs.cache
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\obj\x64\MinSizeRel\WaveSabreConvert.csproj.CopyComplete
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\obj\x64\MinSizeRel\WaveSabreConvert.dll

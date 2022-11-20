@@ -1,0 +1,242 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.8": {
+      "Newtonsoft.Json/6.0.8": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "WaveSabreConvert/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/WaveSabreConvert.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WaveSabreConvert.dll": {}
+        }
+      },
+      "ZERO_CHECK/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ZERO_CHECK.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ZERO_CHECK.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win": {
+      "Newtonsoft.Json/6.0.8": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "WaveSabreConvert/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/WaveSabreConvert.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WaveSabreConvert.dll": {}
+        }
+      },
+      "ZERO_CHECK/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ZERO_CHECK.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ZERO_CHECK.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win-x64": {
+      "Newtonsoft.Json/6.0.8": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "WaveSabreConvert/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/WaveSabreConvert.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WaveSabreConvert.dll": {}
+        }
+      },
+      "ZERO_CHECK/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ZERO_CHECK.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ZERO_CHECK.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win-x86": {
+      "Newtonsoft.Json/6.0.8": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "WaveSabreConvert/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/WaveSabreConvert.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WaveSabreConvert.dll": {}
+        }
+      },
+      "ZERO_CHECK/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ZERO_CHECK.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ZERO_CHECK.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Newtonsoft.Json/6.0.8": {
+      "sha512": "7ut47NDedTW19EbL0JpFDYUP62fcuz27hJrehCDNajdCS5NtqL+E39+7Um3OkNc2wl2ym7K8Ln5eNuLus6mVGQ==",
+      "type": "package",
+      "path": "newtonsoft.json/6.0.8",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netcore45/Newtonsoft.Json.dll",
+        "lib/netcore45/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.xml",
+        "newtonsoft.json.6.0.8.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "tools/install.ps1"
+      ]
+    },
+    "WaveSabreConvert/1.0.0": {
+      "type": "project",
+      "path": "../../WaveSabreConvert/WaveSabreConvert.csproj",
+      "msbuildProject": "../../WaveSabreConvert/WaveSabreConvert.csproj"
+    },
+    "ZERO_CHECK/1.0.0": {
+      "type": "project",
+      "path": "../../ZERO_CHECK.vcxproj",
+      "msbuildProject": "../../ZERO_CHECK.vcxproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.8": [
+      "Newtonsoft.Json >= 6.0.8",
+      "WaveSabreConvert >= 1.0.0",
+      "ZERO_CHECK >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\skarab\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\prog\\intro\\music\\WaveSabre\\build\\Tests\\WaveSabreConvertTests\\WaveSabreConvertTests.csproj",
+      "projectName": "WaveSabreConvertTests",
+      "projectPath": "D:\\prog\\intro\\music\\WaveSabre\\build\\Tests\\WaveSabreConvertTests\\WaveSabreConvertTests.csproj",
+      "packagesPath": "C:\\Users\\skarab\\.nuget\\packages\\",
+      "outputPath": "D:\\prog\\intro\\music\\WaveSabre\\build\\Tests\\WaveSabreConvertTests\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "configFilePaths": [
+        "C:\\Users\\skarab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net48"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net48": {
+          "projectReferences": {
+            "D:\\prog\\intro\\music\\WaveSabre\\build\\WaveSabreConvert\\WaveSabreConvert.csproj": {
+              "projectPath": "D:\\prog\\intro\\music\\WaveSabre\\build\\WaveSabreConvert\\WaveSabreConvert.csproj"
+            },
+            "D:\\prog\\intro\\music\\WaveSabre\\build\\ZERO_CHECK.vcxproj": {
+              "projectPath": "D:\\prog\\intro\\music\\WaveSabre\\build\\ZERO_CHECK.vcxproj"
+            }
+          }
+        }
+      }
+    },
+    "frameworks": {
+      "net48": {
+        "dependencies": {
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[6.0.8, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+LIBRARY Leveller
+EXPORTS
+VSTPluginMain
+main=VSTPluginMain

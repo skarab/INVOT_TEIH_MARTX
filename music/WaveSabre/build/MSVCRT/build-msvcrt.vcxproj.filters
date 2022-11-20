@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\prog\intro\music\WaveSabre\MSVCRT\msvcrt.def">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\prog\intro\music\WaveSabre\build\CMakeFiles\bef0424eaa1d78553881e2a65e2426ce\build-msvcrt.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\prog\intro\music\WaveSabre\MSVCRT\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\prog\intro\music\WaveSabre\build\MSVCRT\CMakeFiles\build-msvcrt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{04573A51-CEA8-33A1-901B-02CE506B2895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C5C264EC-D447-344D-B8EF-468A60480C22}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

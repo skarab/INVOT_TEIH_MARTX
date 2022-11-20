@@ -1,0 +1,4 @@
+LIBRARY Crusher
+EXPORTS
+VSTPluginMain
+main=VSTPluginMain

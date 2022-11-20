@@ -1,0 +1,13 @@
+D:\prog\intro\music\WaveSabre\build\ProjectManager\MinSizeRel\ProjectManager.exe.config
+D:\prog\intro\music\WaveSabre\build\ProjectManager\MinSizeRel\ProjectManager.exe
+D:\prog\intro\music\WaveSabre\build\ProjectManager\MinSizeRel\WaveSabreConvert.dll
+D:\prog\intro\music\WaveSabre\build\ProjectManager\MinSizeRel\Monad.FLParser.dll
+D:\prog\intro\music\WaveSabre\build\ProjectManager\obj\x64\MinSizeRel\ProjectManager.csproj.AssemblyReference.cache
+D:\prog\intro\music\WaveSabre\build\ProjectManager\obj\x64\MinSizeRel\ProjectManager.csproj.SuggestedBindingRedirects.cache
+D:\prog\intro\music\WaveSabre\build\ProjectManager\obj\x64\MinSizeRel\ProjectManager.Properties.Resources.resources
+D:\prog\intro\music\WaveSabre\build\ProjectManager\obj\x64\MinSizeRel\ProjectManager.ProjectDetails.resources
+D:\prog\intro\music\WaveSabre\build\ProjectManager\obj\x64\MinSizeRel\ProjectManager.ProjectManager.resources
+D:\prog\intro\music\WaveSabre\build\ProjectManager\obj\x64\MinSizeRel\ProjectManager.csproj.GenerateResource.cache
+D:\prog\intro\music\WaveSabre\build\ProjectManager\obj\x64\MinSizeRel\ProjectManager.csproj.CoreCompileInputs.cache
+D:\prog\intro\music\WaveSabre\build\ProjectManager\obj\x64\MinSizeRel\ProjectManager.csproj.CopyComplete
+D:\prog\intro\music\WaveSabre\build\ProjectManager\obj\x64\MinSizeRel\ProjectManager.exe

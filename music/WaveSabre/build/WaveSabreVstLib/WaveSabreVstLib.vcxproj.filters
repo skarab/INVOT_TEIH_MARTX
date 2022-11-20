@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x\audioeffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x\audioeffectx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x\vstplugmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\png.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngerror.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pnggccrd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngget.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngmem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngpread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngrio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngrtran.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngrutil.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngset.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngtrans.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngvcrd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngwio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngwrite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngwtran.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngwutil.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\vstgui\aeffguieditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\vstgui\cfileselector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\vstgui\vstcontrols.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\vstgui\vstgui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\vstgui\vstguidebug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib\adler32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib\compress.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib\crc32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib\deflate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib\gzio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib\infback.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib\inffast.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib\inflate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib\inftrees.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib\minigzip.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib\trees.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib\uncompr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib\zutil.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreVstLib\src\ImageManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreVstLib\src\NoTextCOptionMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreVstLib\src\VstEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreVstLib\src\VstPlug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreVstLib\include\WaveSabreVstLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\prog\intro\music\WaveSabre\WaveSabreVstLib\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{BAB0380A-4A9F-3205-ABA4-AAA3453C1A28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C5C264EC-D447-344D-B8EF-468A60480C22}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

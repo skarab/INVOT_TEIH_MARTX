@@ -1,0 +1,4 @@
+LIBRARY Slaughter
+EXPORTS
+VSTPluginMain
+main=VSTPluginMain

@@ -1,0 +1,72 @@
+﻿  Building Custom Rule D:/prog/intro/music/WaveSabre/WaveSabreVstLib/CMakeLists.txt
+  audioeffect.cpp
+  audioeffectx.cpp
+  vstplugmain.cpp
+  aeffguieditor.cpp
+  cfileselector.cpp
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\vstgui\cfileselector.cpp(1156,29): warning C4244: 'argument': conversion from 'LONG_PTR' to 'LONG', possible loss of data
+  vstcontrols.cpp
+  vstguidebug.cpp
+  ImageManager.cpp
+  NoTextCOptionMenu.cpp
+  VstEditor.cpp
+  VstPlug.cpp
+  Generating Code...
+  png.c
+  pngerror.c
+  pnggccrd.c
+  pngget.c
+  pngmem.c
+  pngpread.c
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngpread.c(520,40): warning C4267: '-=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngpread.c(536,40): warning C4267: '-=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngpread.c(700,38): warning C4267: '-=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngpread.c(723,38): warning C4267: '-=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngpread.c(1279,24): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  pngread.c
+  pngrio.c
+  pngrtran.c
+  pngrutil.c
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngrutil.c(210,68): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngrutil.c(234,72): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngrutil.c(297,67): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngrutil.c(1060,48): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngrutil.c(1153,55): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  pngset.c
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngset.c(381,36): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngset.c(397,34): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngset.c(419,41): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngset.c(657,74): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngset.c(943,39): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngset.c(977,38): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngset.c(995,66): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  pngtrans.c
+  pngvcrd.c
+  pngwio.c
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngwio.c(52,66): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  pngwrite.c
+  pngwtran.c
+  pngwutil.c
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngwutil.c(172,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngwutil.c(1315,87): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng\pngwutil.c(1523,73): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  adler32.c
+  compress.c
+  crc32.c
+  Generating Code...
+  Compiling...
+  deflate.c
+  gzio.c
+  infback.c
+  inffast.c
+  inflate.c
+  inftrees.c
+  trees.c
+  uncompr.c
+  zutil.c
+  Generating Code...
+  vstgui.cpp
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\vstgui\vstgui.cpp(1547,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\vstgui\vstgui.cpp(6626,1): warning C4267: '+=': conversion from 'size_t' to 'unsigned long', possible loss of data
+  minigzip.c
+  WaveSabreVstLib.vcxproj -> D:\prog\intro\music\WaveSabre\build\WaveSabreVstLib\MinSizeRel\WaveSabreVstLib.lib

@@ -1,0 +1,7 @@
+﻿  Building Custom Rule D:/prog/intro/music/WaveSabre/Vsts/CMakeLists.txt
+  ScissorEditor.cpp
+  ScissorVst.cpp
+     Creating library D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Scissor.lib and object D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Scissor.exp
+  Generating code
+  Finished generating code
+  Scissor.vcxproj -> D:\prog\intro\music\WaveSabre\build\Vsts\MinSizeRel\Scissor.dll

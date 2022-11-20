@@ -1,0 +1,6 @@
+﻿  Creating msvcrt.lib
+  Microsoft (R) Library Manager Version 14.29.30147.0
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+     Creating library D:/prog/intro/music/WaveSabre/build/MSVCRT/msvcrt.lib and object D:/prog/intro/music/WaveSabre/build/MSVCRT/msvcrt.exp
+  Building Custom Rule D:/prog/intro/music/WaveSabre/MSVCRT/CMakeLists.txt

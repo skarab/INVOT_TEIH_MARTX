@@ -1,0 +1,4 @@
+LIBRARY Thunder
+EXPORTS
+VSTPluginMain
+main=VSTPluginMain

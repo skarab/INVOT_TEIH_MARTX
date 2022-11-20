@@ -1,0 +1,7 @@
+﻿  Building Custom Rule D:/prog/intro/music/WaveSabre/Vsts/CMakeLists.txt
+  EchoEditor.cpp
+  EchoVst.cpp
+     Creating library D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Echo.lib and object D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Echo.exp
+  Generating code
+  Finished generating code
+  Echo.vcxproj -> D:\prog\intro\music\WaveSabre\build\Vsts\MinSizeRel\Echo.dll

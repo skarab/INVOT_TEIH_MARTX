@@ -1,0 +1,4 @@
+LIBRARY Twister
+EXPORTS
+VSTPluginMain
+main=VSTPluginMain

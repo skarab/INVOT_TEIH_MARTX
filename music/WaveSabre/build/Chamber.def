@@ -1,0 +1,4 @@
+LIBRARY Chamber
+EXPORTS
+VSTPluginMain
+main=VSTPluginMain

@@ -1,0 +1,4 @@
+LIBRARY Falcon
+EXPORTS
+VSTPluginMain
+main=VSTPluginMain

@@ -1,0 +1,7 @@
+﻿  Building Custom Rule D:/prog/intro/music/WaveSabre/Vsts/CMakeLists.txt
+  SpecimenEditor.cpp
+  SpecimenVst.cpp
+     Creating library D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Specimen.lib and object D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Specimen.exp
+  Generating code
+  Finished generating code
+  Specimen.vcxproj -> D:\prog\intro\music\WaveSabre\build\Vsts\MinSizeRel\Specimen.dll

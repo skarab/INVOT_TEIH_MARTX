@@ -1,0 +1,7 @@
+﻿  Building Custom Rule D:/prog/intro/music/WaveSabre/Vsts/CMakeLists.txt
+  SmasherEditor.cpp
+  SmasherVst.cpp
+     Creating library D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Smasher.lib and object D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Smasher.exp
+  Generating code
+  Finished generating code
+  Smasher.vcxproj -> D:\prog\intro\music\WaveSabre\build\Vsts\MinSizeRel\Smasher.dll

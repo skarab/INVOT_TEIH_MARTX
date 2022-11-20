@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DA7ECCA2-6EF6-3FAE-A70C-F56A3EAB12A2}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>Crusher</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\prog\intro\music\WaveSabre\build\Vsts\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Crusher.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Crusher</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\prog\intro\music\WaveSabre\build\Vsts\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Crusher.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Crusher</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\prog\intro\music\WaveSabre\build\Vsts\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Crusher.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Crusher</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\prog\intro\music\WaveSabre\build\Vsts\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Crusher.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Crusher</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\..\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng;D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x;D:\prog\intro\music\WaveSabre\Vst3.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;USE_LIBPNG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";Crusher_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;USE_LIBPNG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";Crusher_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\..\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng;D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x;D:\prog\intro\music\WaveSabre\Vst3.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\..\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng;D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x;D:\prog\intro\music\WaveSabre\Vst3.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\WaveSabreCore\Debug\WaveSabreCore.lib;..\WaveSabreVstLib\Debug\WaveSabreVstLib.lib;Msacm32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/prog/intro/music/WaveSabre/build/Vsts/Debug/Crusher.lib</ImportLibrary>
+      <ModuleDefinitionFile>D:/prog/intro/music/WaveSabre/build/Crusher.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>D:/prog/intro/music/WaveSabre/build/Vsts/Debug/Crusher.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\..\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng;D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x;D:\prog\intro\music\WaveSabre\Vst3.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USE_LIBPNG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";Crusher_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USE_LIBPNG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";Crusher_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\..\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng;D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x;D:\prog\intro\music\WaveSabre\Vst3.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\..\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng;D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x;D:\prog\intro\music\WaveSabre\Vst3.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\WaveSabreCore\Release\WaveSabreCore.lib;..\WaveSabreVstLib\Release\WaveSabreVstLib.lib;Msacm32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/prog/intro/music/WaveSabre/build/Vsts/Release/Crusher.lib</ImportLibrary>
+      <ModuleDefinitionFile>D:/prog/intro/music/WaveSabre/build/Crusher.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>D:/prog/intro/music/WaveSabre/build/Vsts/Release/Crusher.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\..\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng;D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x;D:\prog\intro\music\WaveSabre\Vst3.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:sizedDealloc-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USE_LIBPNG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="MinSizeRel";Crusher_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USE_LIBPNG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";Crusher_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\..\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng;D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x;D:\prog\intro\music\WaveSabre\Vst3.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\..\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng;D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x;D:\prog\intro\music\WaveSabre\Vst3.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\WaveSabreCore\MinSizeRel\WaveSabreCore.lib;..\WaveSabreVstLib\MinSizeRel\WaveSabreVstLib.lib;Msacm32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Crusher.lib</ImportLibrary>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <ModuleDefinitionFile>D:/prog/intro/music/WaveSabre/build/Crusher.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Crusher.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\..\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng;D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x;D:\prog\intro\music\WaveSabre\Vst3.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USE_LIBPNG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="RelWithDebInfo";Crusher_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;USE_LIBPNG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\";Crusher_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\..\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng;D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x;D:\prog\intro\music\WaveSabre\Vst3.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\include;D:\prog\intro\music\WaveSabre\WaveSabreVstLib\..\WaveSabreCore\include;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\zlib;D:\prog\intro\music\WaveSabre\Vst3.x\vstgui.sf\libpng;D:\prog\intro\music\WaveSabre\Vst3.x\public.sdk\source\vst2.x;D:\prog\intro\music\WaveSabre\Vst3.x;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\WaveSabreCore\RelWithDebInfo\WaveSabreCore.lib;..\WaveSabreVstLib\RelWithDebInfo\WaveSabreVstLib.lib;Msacm32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/prog/intro/music/WaveSabre/build/Vsts/RelWithDebInfo/Crusher.lib</ImportLibrary>
+      <ModuleDefinitionFile>D:/prog/intro/music/WaveSabre/build/Crusher.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>D:/prog/intro/music/WaveSabre/build/Vsts/RelWithDebInfo/Crusher.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\prog\intro\music\WaveSabre\Vsts\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/prog/intro/music/WaveSabre/Vsts/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/prog/intro/music/WaveSabre -BD:/prog/intro/music/WaveSabre/build --check-stamp-file D:/prog/intro/music/WaveSabre/build/Vsts/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\prog\intro\music\WaveSabre\build\Vsts\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/prog/intro/music/WaveSabre/Vsts/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/prog/intro/music/WaveSabre -BD:/prog/intro/music/WaveSabre/build --check-stamp-file D:/prog/intro/music/WaveSabre/build/Vsts/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\prog\intro\music\WaveSabre\build\Vsts\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/prog/intro/music/WaveSabre/Vsts/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/prog/intro/music/WaveSabre -BD:/prog/intro/music/WaveSabre/build --check-stamp-file D:/prog/intro/music/WaveSabre/build/Vsts/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\prog\intro\music\WaveSabre\build\Vsts\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/prog/intro/music/WaveSabre/Vsts/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/prog/intro/music/WaveSabre -BD:/prog/intro/music/WaveSabre/build --check-stamp-file D:/prog/intro/music/WaveSabre/build/Vsts/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\prog\intro\music\WaveSabre\build\Vsts\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\Vsts\Crusher\CrusherEditor.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\Vsts\Crusher\CrusherVst.h" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vsts\Crusher\CrusherEditor.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\Vsts\Crusher\CrusherVst.cpp" />
+    <ResourceCompile Include="D:\prog\intro\music\WaveSabre\Data\data.rc" />
+    <None Include="D:\prog\intro\music\WaveSabre\build\Crusher.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\prog\intro\music\WaveSabre\build\ZERO_CHECK.vcxproj">
+      <Project>{0D8F0133-981D-3A79-996A-552A827F3AD5}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\prog\intro\music\WaveSabre\build\WaveSabreCore\WaveSabreCore.vcxproj">
+      <Project>{4C98BB37-8D9F-3F05-A164-FA0464359477}</Project>
+      <Name>WaveSabreCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\prog\intro\music\WaveSabre\build\WaveSabreVstLib\WaveSabreVstLib.vcxproj">
+      <Project>{E9A1B2FC-4246-3C09-8D9A-8811479777F0}</Project>
+      <Name>WaveSabreVstLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

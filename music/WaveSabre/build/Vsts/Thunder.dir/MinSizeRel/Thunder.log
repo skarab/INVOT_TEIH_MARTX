@@ -1,0 +1,7 @@
+﻿  Building Custom Rule D:/prog/intro/music/WaveSabre/Vsts/CMakeLists.txt
+  ThunderEditor.cpp
+  ThunderVst.cpp
+     Creating library D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Thunder.lib and object D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Thunder.exp
+  Generating code
+  Finished generating code
+  Thunder.vcxproj -> D:\prog\intro\music\WaveSabre\build\Vsts\MinSizeRel\Thunder.dll

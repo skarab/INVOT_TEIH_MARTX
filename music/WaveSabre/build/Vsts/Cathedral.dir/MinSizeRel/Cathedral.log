@@ -1,0 +1,7 @@
+﻿  Building Custom Rule D:/prog/intro/music/WaveSabre/Vsts/CMakeLists.txt
+  CathedralEditor.cpp
+  CathedralVst.cpp
+     Creating library D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Cathedral.lib and object D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Cathedral.exp
+  Generating code
+  Finished generating code
+  Cathedral.vcxproj -> D:\prog\intro\music\WaveSabre\build\Vsts\MinSizeRel\Cathedral.dll

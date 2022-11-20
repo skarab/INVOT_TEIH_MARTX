@@ -1,0 +1,7 @@
+﻿  Building Custom Rule D:/prog/intro/music/WaveSabre/Vsts/CMakeLists.txt
+  SlaughterEditor.cpp
+  SlaughterVst.cpp
+     Creating library D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Slaughter.lib and object D:/prog/intro/music/WaveSabre/build/Vsts/MinSizeRel/Slaughter.exp
+  Generating code
+  Finished generating code
+  Slaughter.vcxproj -> D:\prog\intro\music\WaveSabre\build\Vsts\MinSizeRel\Slaughter.dll

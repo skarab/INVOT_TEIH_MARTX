@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>D:\prog\intro\music\WaveSabre\build\x64\MinSizeRel\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\prog\intro\music\WaveSabre\build\x64\MinSizeRel\build-msvcrt</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\prog\intro\music\WaveSabre\build\Tests\PlayerTest\MinSizeRel\PlayerTest.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

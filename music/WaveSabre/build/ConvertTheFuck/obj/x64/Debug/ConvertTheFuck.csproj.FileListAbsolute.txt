@@ -1,0 +1,12 @@
+D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\Debug\ConvertTheFuck.exe.config
+D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\Debug\ConvertTheFuck.exe
+D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\Debug\ConvertTheFuck.pdb
+D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\Debug\WaveSabreConvert.dll
+D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\Debug\Monad.FLParser.dll
+D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\Debug\WaveSabreConvert.pdb
+D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\obj\x64\Debug\ConvertTheFuck.csproj.AssemblyReference.cache
+D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\obj\x64\Debug\ConvertTheFuck.csproj.SuggestedBindingRedirects.cache
+D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\obj\x64\Debug\ConvertTheFuck.csproj.CoreCompileInputs.cache
+D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\obj\x64\Debug\ConvertTheFuck.csproj.CopyComplete
+D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\obj\x64\Debug\ConvertTheFuck.exe
+D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\obj\x64\Debug\ConvertTheFuck.pdb

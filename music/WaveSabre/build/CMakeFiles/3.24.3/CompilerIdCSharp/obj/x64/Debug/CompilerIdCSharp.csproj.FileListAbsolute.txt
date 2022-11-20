@@ -1,0 +1,7 @@
+D:\prog\intro\music\WaveSabre\build\CMakeFiles\3.24.3\CompilerIdCSharp\obj\x64\Debug\CompilerIdCSharp.csproj.AssemblyReference.cache
+D:\prog\intro\music\WaveSabre\build\CMakeFiles\3.24.3\CompilerIdCSharp\obj\x64\Debug\CompilerIdCSharp.csproj.SuggestedBindingRedirects.cache
+D:\prog\intro\music\WaveSabre\build\CMakeFiles\3.24.3\CompilerIdCSharp\obj\x64\Debug\CompilerIdCSharp.csproj.CoreCompileInputs.cache
+D:\prog\intro\music\WaveSabre\build\CMakeFiles\3.24.3\CompilerIdCSharp\obj\x64\Debug\CompilerIdCSharp.exe
+D:\prog\intro\music\WaveSabre\build\CMakeFiles\3.24.3\CompilerIdCSharp\obj\x64\Debug\CompilerIdCSharp.pdb
+D:\prog\intro\music\WaveSabre\build\CMakeFiles\3.24.3\CompilerIdCSharp\CompilerIdCSharp.exe
+D:\prog\intro\music\WaveSabre\build\CMakeFiles\3.24.3\CompilerIdCSharp\CompilerIdCSharp.pdb

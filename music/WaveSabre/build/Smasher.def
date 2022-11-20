@@ -1,0 +1,4 @@
+LIBRARY Smasher
+EXPORTS
+VSTPluginMain
+main=VSTPluginMain

@@ -1,0 +1,10 @@
+D:\prog\intro\music\WaveSabre\build\Tests\WaveSabreConvertTests\MinSizeRel\WaveSabreConvertTests.exe.config
+D:\prog\intro\music\WaveSabre\build\Tests\WaveSabreConvertTests\MinSizeRel\WaveSabreConvertTests.exe
+D:\prog\intro\music\WaveSabre\build\Tests\WaveSabreConvertTests\MinSizeRel\Newtonsoft.Json.dll
+D:\prog\intro\music\WaveSabre\build\Tests\WaveSabreConvertTests\MinSizeRel\WaveSabreConvert.dll
+D:\prog\intro\music\WaveSabre\build\Tests\WaveSabreConvertTests\MinSizeRel\Monad.FLParser.dll
+D:\prog\intro\music\WaveSabre\build\Tests\WaveSabreConvertTests\obj\x64\MinSizeRel\WaveSabreConvertTests.csproj.AssemblyReference.cache
+D:\prog\intro\music\WaveSabre\build\Tests\WaveSabreConvertTests\obj\x64\MinSizeRel\WaveSabreConvertTests.csproj.SuggestedBindingRedirects.cache
+D:\prog\intro\music\WaveSabre\build\Tests\WaveSabreConvertTests\obj\x64\MinSizeRel\WaveSabreConvertTests.csproj.CoreCompileInputs.cache
+D:\prog\intro\music\WaveSabre\build\Tests\WaveSabreConvertTests\obj\x64\MinSizeRel\WaveSabreConvertTests.csproj.CopyComplete
+D:\prog\intro\music\WaveSabre\build\Tests\WaveSabreConvertTests\obj\x64\MinSizeRel\WaveSabreConvertTests.exe

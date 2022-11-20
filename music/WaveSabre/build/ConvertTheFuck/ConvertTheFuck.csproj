@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B089DA74-8108-3A7E-B618-5436231050D4}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ConvertTheFuck</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ConvertTheFuck</ProjectName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+    <ManagedAssembly>true</ManagedAssembly>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <OutputPath>D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\Debug\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <PlatformToolset>v143</PlatformToolset>
+    <AssemblyName>ConvertTheFuck</AssemblyName>
+    <StartAction>Program</StartAction>
+    <StartProgram>D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\Debug\ConvertTheFuck.exe</StartProgram>
+    <DebugType>full</DebugType>
+    <DefineConstants>TRACE%3B/langversion:6;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <Optimize>false</Optimize>
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <OutputPath>D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\Release\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <PlatformToolset>v143</PlatformToolset>
+    <AssemblyName>ConvertTheFuck</AssemblyName>
+    <StartAction>Program</StartAction>
+    <StartProgram>D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\Release\ConvertTheFuck.exe</StartProgram>
+    <DebugType>none</DebugType>
+    <DefineConstants>TRACE%3B/langversion:6</DefineConstants>
+    <ErrorReport>queue</ErrorReport>
+    <Optimize>true</Optimize>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <OutputPath>D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\MinSizeRel\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <PlatformToolset>v143</PlatformToolset>
+    <AssemblyName>ConvertTheFuck</AssemblyName>
+    <StartAction>Program</StartAction>
+    <StartProgram>D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\MinSizeRel\ConvertTheFuck.exe</StartProgram>
+    <DebugType>none</DebugType>
+    <DefineConstants>TRACE%3B/langversion:6</DefineConstants>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <OutputPath>D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\RelWithDebInfo\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <PlatformToolset>v143</PlatformToolset>
+    <AssemblyName>ConvertTheFuck</AssemblyName>
+    <StartAction>Program</StartAction>
+    <StartProgram>D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\RelWithDebInfo\ConvertTheFuck.exe</StartProgram>
+    <DebugType>full</DebugType>
+    <DefineConstants>TRACE%3B/langversion:6</DefineConstants>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.CSharp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.CSharp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemGroup>
+    <None Include="D:\prog\intro\music\WaveSabre\ConvertTheFuck\CMakeLists.txt">
+      <Link>CMakeLists.txt</Link>
+    </None>
+  </ItemGroup>
+  <Target Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Name="CustomCommand_Debug_889e770a42bd9f657ab6473ca6d1f455" Inputs="D:/prog/intro/music/WaveSabre/ConvertTheFuck/CMakeLists.txt" Outputs="D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\CMakeFiles\generate.stamp">
+    <Exec Command="echo Building Custom Rule D:/prog/intro/music/WaveSabre/ConvertTheFuck/CMakeLists.txt" />
+    <Exec Command="setlocal&#xA;&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -SD:/prog/intro/music/WaveSabre -BD:/prog/intro/music/WaveSabre/build --check-stamp-file D:/prog/intro/music/WaveSabre/build/ConvertTheFuck/CMakeFiles/generate.stamp&#xA;if %errorlevel% neq 0 goto :cmEnd&#xA;:cmEnd&#xA;endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone&#xA;:cmErrorLevel&#xA;exit /b %1&#xA;:cmDone&#xA;if %errorlevel% neq 0 goto :VCEnd&#xA;:VCEnd" />
+  </Target>
+  <Target Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Name="CustomCommand_Release_889e770a42bd9f657ab6473ca6d1f455" Inputs="D:/prog/intro/music/WaveSabre/ConvertTheFuck/CMakeLists.txt" Outputs="D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\CMakeFiles\generate.stamp">
+    <Exec Command="echo Building Custom Rule D:/prog/intro/music/WaveSabre/ConvertTheFuck/CMakeLists.txt" />
+    <Exec Command="setlocal&#xA;&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -SD:/prog/intro/music/WaveSabre -BD:/prog/intro/music/WaveSabre/build --check-stamp-file D:/prog/intro/music/WaveSabre/build/ConvertTheFuck/CMakeFiles/generate.stamp&#xA;if %errorlevel% neq 0 goto :cmEnd&#xA;:cmEnd&#xA;endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone&#xA;:cmErrorLevel&#xA;exit /b %1&#xA;:cmDone&#xA;if %errorlevel% neq 0 goto :VCEnd&#xA;:VCEnd" />
+  </Target>
+  <Target Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Name="CustomCommand_MinSizeRel_889e770a42bd9f657ab6473ca6d1f455" Inputs="D:/prog/intro/music/WaveSabre/ConvertTheFuck/CMakeLists.txt" Outputs="D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\CMakeFiles\generate.stamp">
+    <Exec Command="echo Building Custom Rule D:/prog/intro/music/WaveSabre/ConvertTheFuck/CMakeLists.txt" />
+    <Exec Command="setlocal&#xA;&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -SD:/prog/intro/music/WaveSabre -BD:/prog/intro/music/WaveSabre/build --check-stamp-file D:/prog/intro/music/WaveSabre/build/ConvertTheFuck/CMakeFiles/generate.stamp&#xA;if %errorlevel% neq 0 goto :cmEnd&#xA;:cmEnd&#xA;endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone&#xA;:cmErrorLevel&#xA;exit /b %1&#xA;:cmDone&#xA;if %errorlevel% neq 0 goto :VCEnd&#xA;:VCEnd" />
+  </Target>
+  <Target Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Name="CustomCommand_RelWithDebInfo_889e770a42bd9f657ab6473ca6d1f455" Inputs="D:/prog/intro/music/WaveSabre/ConvertTheFuck/CMakeLists.txt" Outputs="D:\prog\intro\music\WaveSabre\build\ConvertTheFuck\CMakeFiles\generate.stamp">
+    <Exec Command="echo Building Custom Rule D:/prog/intro/music/WaveSabre/ConvertTheFuck/CMakeLists.txt" />
+    <Exec Command="setlocal&#xA;&quot;C:\Program Files\CMake\bin\cmake.exe&quot; -SD:/prog/intro/music/WaveSabre -BD:/prog/intro/music/WaveSabre/build --check-stamp-file D:/prog/intro/music/WaveSabre/build/ConvertTheFuck/CMakeFiles/generate.stamp&#xA;if %errorlevel% neq 0 goto :cmEnd&#xA;:cmEnd&#xA;endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone&#xA;:cmErrorLevel&#xA;exit /b %1&#xA;:cmDone&#xA;if %errorlevel% neq 0 goto :VCEnd&#xA;:VCEnd" />
+  </Target>
+  <ItemGroup>
+    <None Include="D:\prog\intro\music\WaveSabre\ConvertTheFuck\App.config">
+      <Link>App.config</Link>
+    </None>
+    <Compile Include="D:\prog\intro\music\WaveSabre\ConvertTheFuck\Program.cs">
+      <Link>Program.cs</Link>
+    </Compile>
+    <Compile Include="D:\prog\intro\music\WaveSabre\ConvertTheFuck\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Core">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Data">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Xml">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\prog\intro\music\WaveSabre\build\ZERO_CHECK.vcxproj">
+      <Project>{0D8F0133-981D-3A79-996A-552A827F3AD5}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\WaveSabreConvert.csproj">
+      <Project>{56F80814-3FB8-3A9C-8A20-B7B4528C45C3}</Project>
+      <Name>WaveSabreConvert</Name>
+      <SkipGetTargetFrameworkProperties>true</SkipGetTargetFrameworkProperties>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'MinSizeRel'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'RelWithDebInfo'">
+  </PropertyGroup>
+  <PropertyGroup>
+    <BuildDependsOn>
+      CustomCommand_Debug_889e770a42bd9f657ab6473ca6d1f455;
+      CustomCommand_MinSizeRel_889e770a42bd9f657ab6473ca6d1f455;
+      CustomCommand_RelWithDebInfo_889e770a42bd9f657ab6473ca6d1f455;
+      CustomCommand_Release_889e770a42bd9f657ab6473ca6d1f455;
+      $(BuildDependsOn)
+</BuildDependsOn>
+  </PropertyGroup>
+</Project>

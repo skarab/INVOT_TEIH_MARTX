@@ -1,0 +1,4 @@
+LIBRARY Echo
+EXPORTS
+VSTPluginMain
+main=VSTPluginMain

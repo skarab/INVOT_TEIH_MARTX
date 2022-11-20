@@ -1,0 +1,4 @@
+LIBRARY Adultery
+EXPORTS
+VSTPluginMain
+main=VSTPluginMain

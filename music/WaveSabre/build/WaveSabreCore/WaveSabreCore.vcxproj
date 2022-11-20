@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4C98BB37-8D9F-3F05-A164-FA0464359477}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>WaveSabreCore</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\prog\intro\music\WaveSabre\build\WaveSabreCore\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">WaveSabreCore.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">WaveSabreCore</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\prog\intro\music\WaveSabre\build\WaveSabreCore\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">WaveSabreCore.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">WaveSabreCore</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\prog\intro\music\WaveSabre\build\WaveSabreCore\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">WaveSabreCore.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">WaveSabreCore</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\prog\intro\music\WaveSabre\build\WaveSabreCore\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">WaveSabreCore.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">WaveSabreCore</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:sizedDealloc-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\prog\intro\music\WaveSabre\WaveSabreCore\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/prog/intro/music/WaveSabre/WaveSabreCore/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/prog/intro/music/WaveSabre -BD:/prog/intro/music/WaveSabre/build --check-stamp-file D:/prog/intro/music/WaveSabre/build/WaveSabreCore/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\prog\intro\music\WaveSabre\build\WaveSabreCore\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/prog/intro/music/WaveSabre/WaveSabreCore/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/prog/intro/music/WaveSabre -BD:/prog/intro/music/WaveSabre/build --check-stamp-file D:/prog/intro/music/WaveSabre/build/WaveSabreCore/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\prog\intro\music\WaveSabre\build\WaveSabreCore\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/prog/intro/music/WaveSabre/WaveSabreCore/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/prog/intro/music/WaveSabre -BD:/prog/intro/music/WaveSabre/build --check-stamp-file D:/prog/intro/music/WaveSabre/build/WaveSabreCore/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\prog\intro\music\WaveSabre\build\WaveSabreCore\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/prog/intro/music/WaveSabre/WaveSabreCore/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/prog/intro/music/WaveSabre -BD:/prog/intro/music/WaveSabre/build --check-stamp-file D:/prog/intro/music/WaveSabre/build/WaveSabreCore/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\prog\intro\music\WaveSabre\build\WaveSabreCore\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Adultery.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\AllPass.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\AllPassDelay.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\BiquadFilter.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Cathedral.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Chamber.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Comb.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Crusher.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\DelayBuffer.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Device.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Devices.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Echo.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Envelope.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Falcon.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\GmDls.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\GsmSample.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Helpers.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Leveller.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\MxcsrFlagGuard.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\ResampleBuffer.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\SamplePlayer.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Scissor.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Slaughter.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Smasher.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Specimen.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\StateVariableFilter.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\SynthDevice.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Twister.h" />
+    <ClInclude Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\include\WaveSabreCore\Deprecated\Thunder.h" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Adultery.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\AllPass.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\AllPassDelay.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\BiquadFilter.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Cathedral.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Chamber.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Comb.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Crusher.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\DelayBuffer.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Device.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Echo.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Envelope.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Falcon.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\GmDls.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\GsmSample.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Helpers.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Leveller.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\MxcsrFlagGuard.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\ResampleBuffer.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\SamplePlayer.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Scissor.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Slaughter.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Smasher.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Specimen.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\StateVariableFilter.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\SynthDevice.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Twister.cpp" />
+    <ClCompile Include="D:\prog\intro\music\WaveSabre\WaveSabreCore\src\Deprecated\Thunder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\prog\intro\music\WaveSabre\build\ZERO_CHECK.vcxproj">
+      <Project>{0D8F0133-981D-3A79-996A-552A827F3AD5}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

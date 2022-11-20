@@ -1,0 +1,31 @@
+﻿  Building Custom Rule D:/prog/intro/music/WaveSabre/WaveSabreCore/CMakeLists.txt
+  Adultery.cpp
+  AllPass.cpp
+  AllPassDelay.cpp
+  BiquadFilter.cpp
+  Cathedral.cpp
+  Chamber.cpp
+  Comb.cpp
+  Crusher.cpp
+  DelayBuffer.cpp
+  Device.cpp
+  Echo.cpp
+  Envelope.cpp
+  Falcon.cpp
+  GmDls.cpp
+  GsmSample.cpp
+  Helpers.cpp
+  Leveller.cpp
+  MxcsrFlagGuard.cpp
+  ResampleBuffer.cpp
+  SamplePlayer.cpp
+  Compiling...
+  Scissor.cpp
+  Slaughter.cpp
+  Smasher.cpp
+  Specimen.cpp
+  StateVariableFilter.cpp
+  SynthDevice.cpp
+  Twister.cpp
+  Thunder.cpp
+  WaveSabreCore.vcxproj -> D:\prog\intro\music\WaveSabre\build\WaveSabreCore\MinSizeRel\WaveSabreCore.lib

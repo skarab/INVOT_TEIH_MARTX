@@ -1,0 +1,4 @@
+LIBRARY Specimen
+EXPORTS
+VSTPluginMain
+main=VSTPluginMain

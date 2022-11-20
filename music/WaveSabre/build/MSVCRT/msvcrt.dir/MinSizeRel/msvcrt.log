@@ -1,0 +1,3 @@
+﻿  Building Custom Rule D:/prog/intro/music/WaveSabre/MSVCRT/CMakeLists.txt
+  mainCRTStartup.c
+  msvcrt.vcxproj -> D:\prog\intro\music\WaveSabre\build\MSVCRT\MinSizeRel\msvcrt.lib

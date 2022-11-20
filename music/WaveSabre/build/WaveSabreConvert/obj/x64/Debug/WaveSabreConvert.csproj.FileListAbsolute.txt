@@ -1,0 +1,10 @@
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\Debug\WaveSabreConvert.dll
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\Debug\WaveSabreConvert.pdb
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\Debug\Monad.FLParser.dll
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\obj\x64\Debug\WaveSabreConvert.csproj.AssemblyReference.cache
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\obj\x64\Debug\WaveSabreConvert.Properties.Resources.resources
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\obj\x64\Debug\WaveSabreConvert.csproj.GenerateResource.cache
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\obj\x64\Debug\WaveSabreConvert.csproj.CoreCompileInputs.cache
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\obj\x64\Debug\WaveSabreConvert.csproj.CopyComplete
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\obj\x64\Debug\WaveSabreConvert.dll
+D:\prog\intro\music\WaveSabre\build\WaveSabreConvert\obj\x64\Debug\WaveSabreConvert.pdb

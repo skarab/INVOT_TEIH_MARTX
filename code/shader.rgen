@@ -1,0 +1,609 @@
+#version 460
+#extension GL_EXT_ray_tracing : require
+#extension GL_EXT_nonuniform_qualifier : enable
+#extension GL_EXT_scalar_block_layout : enable
+#extension GL_GOOGLE_include_directive : enable
+#extension GL_EXT_shader_explicit_arithmetic_types_int64 : require
+#extension GL_EXT_buffer_reference2 : require
+
+#include "defines.h"
+
+struct hitPayload
+{
+	float t;
+	vec4 color;
+};
+
+struct Globals
+{
+	float time;
+	uint frameId;
+	vec3 cameraPosition;
+	vec3 cameraTarget;
+};
+
+struct AABB
+{
+	vec3 minimum;
+	vec3 maximum;
+};
+
+layout(location = 0) rayPayloadEXT hitPayload prd;
+
+layout(set = 0, binding = 0) uniform accelerationStructureEXT as;
+layout(set = 0, binding = 1, rgba8) uniform image2D outputRT[4];
+layout(set = 0, binding = 2) uniform sampler2D samplerOutput[4];
+layout(set = 0, binding = 3, scalar) uniform _globals { Globals globals; };
+layout(set = 0, binding = 4, scalar) writeonly buffer aabbs_ { AABB aabbs[]; };
+layout(set = 0, binding = 5, rgba8) uniform image3D textures[4];
+layout(set = 0, binding = 6) uniform sampler3D samplers[4];
+layout(set = 0, binding = 7, scalar) buffer dots_ { uvec3 dots[]; };
+
+// Filmic Tonemapping Operators http://filmicworlds.com/blog/filmic-tonemapping-operators/
+vec3 filmic(vec3 x)
+{
+	vec3 X = max(vec3(0.0), x - 0.004);
+	vec3 result = (X * (6.2 * X + 0.5)) / (X * (6.2 * X + 1.7) + 0.06);
+	return pow(result, vec3(2.2));
+}
+
+float luma(const vec3 color)
+{
+	return dot(color, vec3(0.299, 0.587, 0.114));
+}
+
+// Noise from some shadertoy, surely IQ
+float rand(vec2 n)
+{ 
+	return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
+}
+
+float noise(vec2 n)
+{
+	const vec2 d = vec2(0.0, 1.0);
+	vec2 b = floor(n), f = smoothstep(vec2(0.0), vec2(1.0), fract(n));
+	return mix(mix(rand(b), rand(b + d.yx), f.x), mix(rand(b + d.xy), rand(b + d.yy), f.x), f.y);
+}
+
+// Exterior is just a sphere and a floor, a bit distorted, could be animated as well but no time..
+void sampleExterior(const vec3 wsRayPosition, vec3 wsRayDirection, out vec3 wsPosition, out vec3 wsNormal, out vec4 exteriorColor, out vec2 exteriorMaterial)
+{
+	if ((globals.time >= 112.0 && globals.time <= 115) || (globals.time >= 123.0 && globals.time <= 126))
+	{
+		wsRayDirection.z *= 1.3;
+	}
+	
+	// Sphere intersection
+	const float sr = 600.0; 
+	float a = dot(wsRayDirection, wsRayDirection);
+	vec3 center = vec3(0.0, - 50.0, 0.0);
+	vec3 s0_r0 = wsRayPosition - center;
+	float b = 2.0 * dot(wsRayDirection, s0_r0);
+	float c = dot(s0_r0, s0_r0) - (sr * sr);
+	float t = -(b - sqrt(b*b - 4.0*a*c))/(2.0*a);
+	wsPosition = wsRayPosition + wsRayDirection * t;
+	wsNormal = -normalize(wsPosition - center);
+	exteriorColor = vec4(1.0, 1.0, 1.0, 1.0);
+	float normalOffset = 100.0;
+
+	// Floor intersection
+	vec3 wsFloorNormal = vec3(0.0, -1.0, 0.0);
+	float d = -dot(vec3(0.0, BOUNDS, 0.0), wsFloorNormal);
+	float v = dot(wsRayDirection, wsFloorNormal);
+	t = -(dot(wsRayPosition, wsFloorNormal) + d) / v;
+	
+	if (t > 0.0)
+	{
+		vec3 wsFloorPosition = wsRayPosition + wsRayDirection * t;
+		
+		// Lerp to get smooth edges
+		float i = clamp(1.0 - (sr - length(wsFloorPosition.xz)) * 0.001, 0.0, 1.0);
+
+		wsPosition = mix(wsFloorPosition, wsPosition, i);
+		wsNormal = normalize(mix(wsFloorNormal, wsNormal, i));
+		exteriorColor = mix(vec4(1.0, 1.0, 1.0, 1.0), exteriorColor, i);
+		normalOffset = mix(5.0, normalOffset, i);
+	}
+
+	wsNormal = normalize(wsNormal + vec3(sin(wsPosition.x * 0.01) * 0.2, sin(sin(wsPosition.y * 0.01)) * 0.2, cos(wsPosition.z * 0.01) * 0.2));
+	wsPosition += wsNormal * normalOffset;
+
+	exteriorMaterial = vec2(0);
+}
+
+vec3 lightDirections[LIGHT_COUNT];
+vec3 lightColors[LIGHT_COUNT];
+
+vec4 ComputeReflection(const vec2 material, const vec3 wsPosition, const vec3 wsNormal, const vec3 wsRayDirection, const vec2 random, const bool isExterior)
+{
+	const float roughness = material.x;
+	const float metallic = step(0.5, material.y);
+	
+	vec3 wsReflectDirection = reflect(wsRayDirection, wsNormal);
+	vec3 up = vec3(0.0, -1.0, 0.0);
+	vec3 right = cross(wsReflectDirection, up);
+	up = cross(right, wsReflectDirection);
+	float roughnessFactor = roughness * 0.2;
+	vec3 roughnessOffset = mix(mix(-up, up, random.x), mix(-right, right, random.x), random.y) * roughnessFactor;
+	wsReflectDirection += right * 0.1;
+	wsReflectDirection = normalize(wsReflectDirection + roughnessOffset);
+	prd.t = -1.0;
+	prd.color = vec4(0.0);
+	traceRayEXT(as, gl_RayFlagsOpaqueEXT, 0xFF, 0, 0, 0, wsPosition, 0.5, wsReflectDirection, 10000.0, 0);
+	vec4 reflection = prd.color;
+	
+	if (prd.t >= 0.0)
+	{
+		reflection.rgb = min(reflection.rgb / reflection.a, 1.0);
+	
+		if (isExterior)
+		{
+			reflection.a *= 2.0;
+		}
+	}
+
+	if (prd.t < 0.0 || reflection.a < 1.0)
+	{
+		vec4 exteriorReflection;
+		vec3 wsTmpPosition, wsTmpNormal;
+		vec2 tmpExteriorMaterial;
+		sampleExterior(wsPosition + wsReflectDirection * 0.5, wsReflectDirection, wsTmpPosition, wsTmpNormal, exteriorReflection, tmpExteriorMaterial);
+		
+		vec4 color = vec4(0,0,0,1);
+
+		for (int i=0 ; i<LIGHT_COUNT ; ++i)
+		{
+			vec3 wsSpotPosition = -lightDirections[i] * BOUNDS * 1.2;
+			float dist = length(wsTmpPosition - wsSpotPosition);
+			float attenuation = min(1.0 / (0.000001 * dist + 0.000005 * dist * dist), 1.0);
+			vec3 lightDirection = (wsTmpPosition - wsSpotPosition) / dist;
+			attenuation *= pow(max(dot(lightDirection, lightDirections[i]), 0.0), 8.0);
+
+			if (dot(lightDirections[i], -wsReflectDirection) > 0.99)
+			{
+				color.rgb += lightColors[i] * 0.02;
+			}
+
+			// Diffuse lighting
+			float lightDot = dot(wsTmpNormal, -lightDirection);
+			color.rgb += exteriorReflection.rgb * lightColors[i] * max(lightDot, 0.0) * attenuation;
+		
+			// Specular lighting
+			vec3 R = reflect(lightDirection, wsTmpNormal);
+			vec3 V = normalize(wsPosition - wsTmpPosition);
+			float specularCoefficient = pow(max(0.0, dot(V, R)), mix(128.0, 4.0, roughness));
+			color.rgb += exteriorReflection.rgb * lightColors[i] * specularCoefficient * step(0.0, lightDot);
+		}
+
+		if (!isExterior)
+		{
+			reflection.a *= 0.5;
+			color.rgb *= 2.0;
+		}
+		
+		reflection = mix(color, reflection, reflection.a);
+	}
+
+	reflection.a *= mix(0.2, 0.5, metallic);
+	return reflection;
+}
+
+vec3 ComputeLighting(const vec4 baseColor, const vec2 material, const vec3 wsPosition, const vec3 wsNormal, const vec3 wsCameraPos, const vec3 wsRayDirection, const float hitTime, const vec2 random, const bool isExterior)
+{
+	const float roughness = material.x;
+	const float metallic = step(0.5, material.y);
+	
+	vec3 color = vec3(0.0);
+
+	if (metallic == 0.0)
+	for (int i=0 ; i<LIGHT_COUNT ; ++i)
+	{
+		vec3 wsSpotPosition = -lightDirections[i] * BOUNDS * 1.2;
+		float dist = length(wsPosition - wsSpotPosition);
+		float attenuation = min(1.0 / (0.000001 * dist + 0.000005 * dist * dist), 1.0);
+		vec3 lightDirection = (wsPosition - wsSpotPosition) / dist;
+		attenuation *= pow(max(dot(lightDirection, lightDirections[i]), 0.0), 8.0);
+
+		// Draw spot position
+		if (dot(lightDirections[i], -wsRayDirection) > 0.99)
+		{
+			if (hitTime > length(wsCameraPos - wsSpotPosition))
+			{
+				color += lightColors[i] * 0.04;
+			}
+		}
+
+		// Trace ray for shadows
+		vec3 up = vec3(0.0, -1.0, 0.0);
+		vec3 right = cross(-lightDirection, up);
+		up = cross(right, -lightDirection);
+		float softShadowFactor = (1.0 - attenuation) * 0.05;
+		vec3 softShadowOffset = mix(mix(-up, up, random.x), mix(-right, right, random.x), random.y) * softShadowFactor;
+		vec3 shadowDirection = normalize(-lightDirection + softShadowOffset);
+		prd.t = -1.0;
+		prd.color = vec4(1.0);
+		traceRayEXT(as, gl_RayFlagsOpaqueEXT, 0xFF, 0, 0, 0, wsPosition, 1.0, shadowDirection, 10000.0, 0);
+		vec4 shadowColor = prd.color;
+		float shadowed = 0.0;
+		if (prd.t >= 0.0)
+		{
+			shadowed = 1.0;
+
+			float t = prd.t + 0.01;
+			int rayId = 0;
+			while (prd.t >= 0.0 && shadowColor.a < 1.0 && rayId < SHADOW_MAX_RAYS)
+			{
+				prd.t = -1.0;
+				prd.color = vec4(0.0);
+				traceRayEXT(as, gl_RayFlagsOpaqueEXT, 0xFF, 0, 0, 0, wsPosition, t, shadowDirection, 10000.0, 0);
+				shadowColor += prd.color;
+				t = prd.t + 0.01;
+				++rayId;
+			}
+		}
+		
+		// Diffuse lighting
+		float lightDot = dot(wsNormal, shadowDirection);
+		color += baseColor.rgb * lightColors[i] * mix(1.0, max(lightDot, 0.0) * (1.0 - shadowed), min(shadowColor.a * 8.0, 1.0)) * attenuation;
+		
+		// Specular lighting
+		vec3 R = reflect(lightDirection, wsNormal);
+		vec3 V = normalize(wsCameraPos - wsPosition);
+		float specularCoefficient = pow(max(0.0, dot(V, R)), mix(128.0, 4.0, roughness));
+		color += baseColor.rgb * lightColors[i] * specularCoefficient * step(0.0, lightDot);
+	}
+
+	// Trace rays for Reflections
+	vec4 reflection = ComputeReflection(material, wsPosition, wsNormal, wsRayDirection, random, isExterior);
+	color += baseColor.rgb * reflection.rgb * min(reflection.a, 1.0);
+	
+	return color;
+}
+
+void main()
+{
+	float blurAmount = 0.0;
+	if (globals.time>=9.6 && globals.time<16.0)
+	{
+		blurAmount = pow((1.0 - (globals.time-9.6) / (16.0-9.6)), 8.0) * 40.0;
+	}
+
+	const float animSpeed = 0.5;
+	const float startBlendDots = 80.0;
+	
+	uint pixelId = gl_LaunchIDEXT.y * RENDER_WIDTH + gl_LaunchIDEXT.x;
+	vec2 random = vec2(noise(gl_LaunchIDEXT.xy + globals.frameId / 2.1), noise(gl_LaunchIDEXT.xy + globals.frameId));
+	
+	float globalsTime = globals.time * animSpeed;
+
+	// Update AABBs
+	uint aabbStart = min(pixelId * AABBS_PERPIXEL_COUNT, AABBS_COUNT);
+	uint aabbEnd = min((pixelId + 1) * AABBS_PERPIXEL_COUNT, AABBS_COUNT);
+	uint texId = globals.frameId % 4;
+	for (uint i = aabbStart ; i < aabbEnd ; ++i)
+	{
+		uint aabbId = i + (globals.frameId % 2) * AABBS_COUNT;
+	
+		uvec3 aabbPosition;
+		aabbPosition.z = i / (AABBS_SIZE*AABBS_SIZE);
+		aabbPosition.y = (i - aabbPosition.z * (AABBS_SIZE*AABBS_SIZE)) / AABBS_SIZE;
+		aabbPosition.x = i - aabbPosition.z * (AABBS_SIZE*AABBS_SIZE) - aabbPosition.y * AABBS_SIZE;
+		
+		float used = 0.0;
+		for (int z = 0 ; z < AABB_TEXEL_COUNT ; ++z)
+		for (int y = 0 ; y < AABB_TEXEL_COUNT ; ++y)
+		for (int x = 0 ; x < AABB_TEXEL_COUNT ; ++x)
+		{
+			vec3 uv = (vec3(aabbPosition) * AABB_SIZE + vec3(x, y, z) * 2.0) / MAX_TEXTURE_SIZE;
+			used += texture(samplers[texId], uv).a;
+		}
+
+		used = step(used, 0.0);
+		aabbs[aabbId].minimum = mix(aabbPosition * AABB_BOUNDS - BOUNDS / 2.0, vec3(-10000000.0), used);
+		aabbs[aabbId].maximum = mix((aabbPosition + 1) * AABB_BOUNDS - BOUNDS / 2.0, vec3(-10000000.0), used);
+	}
+	
+	// Animate dots material
+	vec2 dotMaterial = vec2(sin(globalsTime * 0.2)*0.5+0.5, sin(globalsTime * 0.1)*0.5+0.5);
+	
+	// Clear and generate dots
+	uint texWriteId = (globals.frameId + 1) % 4;
+	uint texClearId = (globals.frameId + 2) % 4;
+	uint dotStart = min(pixelId * DOTS_PER_PIXEL, DOTS_COUNT);
+	uint dotEnd = min((pixelId + 1) * DOTS_PER_PIXEL, DOTS_COUNT);
+	for (uint i = dotStart ; i < dotEnd ; ++i)
+	{
+		if (globals.time>startBlendDots)
+		{
+			globalsTime = globals.time * animSpeed;
+			if (i%3==0) globalsTime *= 2.0;
+		}
+
+		imageStore(textures[texClearId], ivec3(dots[texClearId*DOTS_COUNT+i]), vec4(0.0));
+		float t = i / float(DOTS_COUNT) + globalsTime;
+
+		// random sinus thing
+		vec3 dotPosition = vec3(HALF_TEXTURE_SIZE) + vec3(sin(sin(t * 0.1) * 2.0 + t * 2.0), cos(t * 10.0 + 1.5 + sin(t * 0.5)), sin(cos(t * 200.5 + globalsTime)*120.0 + globalsTime)) * (HALF_TEXTURE_SIZE*0.9);
+
+		// cube
+		uint cubeSize = uint(pow(DOTS_COUNT, 0.3333333));
+		vec3 cubePosition;
+		cubePosition.z = i / (cubeSize*cubeSize);
+		cubePosition.y = (i - uint(cubePosition.z) * (cubeSize*cubeSize)) / cubeSize;
+		cubePosition.x = i - uint(cubePosition.z) * (cubeSize*cubeSize) - uint(cubePosition.y) * cubeSize;
+		
+		float spherify = sin(globalsTime * 2.0) * 0.5 + 0.5;
+		cubePosition -= cubeSize / 2.0;
+		float cubeL = length(cubePosition);
+		cubePosition *= min(cubeL, cubeSize * mix(1.3, 0.5, spherify)) / cubeL;
+		cubePosition += cubeSize / 2.0;
+
+		float finalSize = 0.7;
+		if (sin(globalsTime * 0.1)<0.0)
+		{
+			if (sin(globalsTime * 0.1)<-0.5)
+			{
+				finalSize = 0.95;
+				cubePosition.y = cubeSize - cubePosition.y * 0.1 - clamp((sin(cubePosition.x * 0.04 + globalsTime) + cos(cubePosition.z * 0.04 + globalsTime * 2.0)), 0.0, 1.0) * cubeSize * 0.1;
+			}
+			else
+			{
+				finalSize = 0.95;
+				cubePosition.y = cubeSize - cubePosition.y * 0.1 - clamp((sin(cubePosition.x * 0.04 + cubePosition.z + globalsTime) + cos(cubePosition.z * 0.04 - cubePosition.x + globalsTime * 2.0)), 0.0, 3.0) * cubeSize * 0.1;
+			}
+		}
+
+		cubePosition = (cubePosition - cubeSize / 2.0) * (TEXTURE_SIZE * finalSize / cubeSize) + HALF_TEXTURE_SIZE;
+
+		// plane
+		uint size = uint(sqrt(float(DOTS_COUNT / 2)));
+		float plane_size = TEXTURE_SIZE * 0.99 / size;
+		vec3 planePosition;
+		planePosition.x = i / 2 / size;
+		planePosition.z = i / 2 - planePosition.x * size;
+		planePosition.y = i/2%2+HALF_TEXTURE_SIZE * 1.5 + cos(planePosition.x * 0.001 + globalsTime) * (HALF_TEXTURE_SIZE*0.3) + sin(planePosition.z * 0.001 + globalsTime) * (HALF_TEXTURE_SIZE * 0.1);
+		planePosition.xz *= plane_size;
+		
+		if (cos(globalsTime * 0.1)<0.0)
+		{
+			float ti = pow(clamp(sin(globalsTime * 0.5), 0.0, 1.0), 4.0);
+			dotPosition = mix(cubePosition, dotPosition, ti);
+		}
+		
+		if (sin(globalsTime * 0.2)<0.0)
+		{
+			float ti = clamp(cos(globalsTime * 0.5), 0.0, 1.0);
+			dotPosition = mix(dotPosition, planePosition, ti);
+		}
+		
+		if (sin(globalsTime * 0.1)<0)
+		{
+			dotPosition.y += cos(globalsTime * 1.0 + dotPosition.x) * 4.0;
+			dotPosition.x += sin(globalsTime * 0.5 + dotPosition.z) * 20.0;
+			dotPosition.z += step(cos(globalsTime * 0.4 + dotPosition.y * 0.08), 0.5) * 20.0;
+			dotPosition.y += step(cos(globalsTime*0.2 + dotPosition.x*0.01), 0.5) * sin(globalsTime * 0.5 + dotPosition.x * 0.08) * 60.0;
+		}
+
+		// color
+		float alpha = mix(0.4, 1.0, sin((dotPosition.x+dotPosition.y+dotPosition.z)* 0.01 + globalsTime * 0.4)*0.5+0.5);
+		vec4 color = mix(vec4(sin(t * 3.0), sin(cos(t)), cos(t * 10.0), alpha), vec4(1.0, 1.0, 1.0, 1.0), (cos(globalsTime + t*0.1)*0.5+0.5) * 0.5+0.5);
+		
+		if (globals.time > 105.6 && globals.time < 146.4)
+		{
+			color.rgb = vec3(1.0);
+		}
+
+		dots[texWriteId*DOTS_COUNT+i] = uvec3(dotPosition);
+		imageStore(textures[texWriteId], ivec3(dotPosition), color);
+	}
+
+	if (globals.time>startBlendDots)
+	{
+		globalsTime = globals.time * animSpeed;
+	}	
+
+	// Setup camera
+	const vec3 wsCameraPos = globals.cameraPosition;
+	const vec3 wsCameraTarget = globals.cameraTarget;
+	const vec3 wsCameraForward = normalize(wsCameraTarget - wsCameraPos);
+	const vec3 wsCameraRight = normalize(cross(wsCameraForward, vec3(0, 1, 0)));
+    const vec3 wsCameraUp = normalize(cross(wsCameraRight, wsCameraForward));  
+
+	mat3 csToWorldMatrix = mat3(wsCameraRight, wsCameraUp, wsCameraForward);
+	float cameraDistance = tan(FOV * 0.5 * PI / 180.0);       
+	vec2 pixelCenter = vec2(gl_LaunchIDEXT.xy) + vec2(0.5);
+	vec2 uv = pixelCenter / vec2(gl_LaunchSizeEXT.xy);
+	vec3 csPosition = vec3(uv * 2.0 - 1.0, cameraDistance);
+	csPosition.y *= float(gl_LaunchSizeEXT.y) / float(gl_LaunchSizeEXT.x);
+	vec3 wsRayDirection = normalize(csToWorldMatrix * csPosition);
+
+	const vec3 blurOffset = mix(mix(-wsCameraUp, wsCameraUp, random.x), mix(-wsCameraRight, wsCameraRight, random.x), random.y) * blurAmount;
+	wsRayDirection = normalize(wsRayDirection + blurOffset);
+	
+	// Sample exterior
+	vec3 wsExteriorPosition;
+	vec3 wsExteriorNormal;
+	vec4 exteriorColor;
+	vec2 exteriorMaterial;
+	sampleExterior(wsCameraPos, wsRayDirection, wsExteriorPosition, wsExteriorNormal, exteriorColor, exteriorMaterial);
+
+	// Animate lights
+	int lightCount = int(clamp(abs(sin(globalsTime * 0.01)) * LIGHT_COUNT, 1, LIGHT_COUNT));
+	if (globals.time >= 48.0 && globals.time < 67.2)
+	{
+		lightCount = LIGHT_COUNT;
+	}
+	for (int i=0 ; i<LIGHT_COUNT ; ++i)
+	{
+		float id = i/float(LIGHT_COUNT);
+		lightDirections[i] = normalize(vec3(sin(globalsTime * 0.3 * (id+0.1) + id * 3.0) * 3.0, sin(cos(globalsTime * 0.6 + id * 4.0)), cos(globalsTime * 0.5 * (id+0.1) + id * 3.0) * 3.0));
+		
+		if (i<lightCount)
+		{
+			lightColors[i] = vec3(sin(i*3.0/12.0) * 0.5 + 0.5, cos(i*3.0/12.0) * 0.5 + 0.5, sin(i*8.0/12.0) * 0.4 + 0.6);
+
+			if (globals.time > 105.6 && globals.time < 146.4)
+			{
+				lightColors[i] = vec3(1);
+			}
+		}
+		else
+		{
+			lightColors[i] = vec3(0);
+		}
+	}
+
+	// Trace main ray
+	prd.t = -1.0;
+	prd.color = vec4(0.0);
+	traceRayEXT(as, gl_RayFlagsOpaqueEXT, 0xFF, 0, 0, 0, wsCameraPos, 0.001, wsRayDirection, 10000.0, 0);
+	vec4 color = prd.color;
+	float t = prd.t + 0.01;
+	bool hasHitProcedural = prd.t>=0.0;
+	vec3 wsPosition = wsCameraPos+wsRayDirection*prd.t;
+		
+	vec3 finalColor = exteriorColor.rgb;
+
+	// Compute lighting of exterior if required
+	if (!hasHitProcedural || color.a < 1.0)
+	{
+		finalColor = ComputeLighting(exteriorColor, exteriorMaterial, wsExteriorPosition, wsExteriorNormal, wsCameraPos, wsRayDirection, 100000.0, random, true);
+	}
+
+	if (hasHitProcedural)
+	{	
+		float hitTime = t;
+
+		// Accumulate alpha
+		int rayId = 0;
+		prd.t = 0.0;
+		while (prd.t >= 0.0 && color.a < 1.0 && rayId < MAX_RAYS)
+		{
+			prd.t = -1.0;
+			prd.color = vec4(0.0);
+			traceRayEXT(as, gl_RayFlagsOpaqueEXT, 0xFF, 0, 0, 0, wsCameraPos, t, wsRayDirection, 10000.0, 0);
+			color += prd.color;
+			t = prd.t + 0.01;
+			++rayId;
+		}
+	
+		// Remove alpha multiply
+		color.rgb = min(color.rgb / color.a, 1.0);
+	
+		// Trace secondary rays to compute normal
+		const float normalOffset = 0.01;
+		vec3 wsNormalRayDirection = normalize(csToWorldMatrix * (csPosition + vec3(normalOffset, 0.0, 0.0)));
+		prd.t = -1.0;
+		traceRayEXT(as, gl_RayFlagsOpaqueEXT, 0xFF, 0, 0, 0, wsCameraPos, 0.001, wsNormalRayDirection, 10000.0, 0);
+		vec3 wsPositionRight = wsCameraPos+wsNormalRayDirection*prd.t;
+		if (prd.t < 0.0)
+		{
+			wsPositionRight = wsPosition + wsCameraRight * 0.01;
+		}
+
+		wsNormalRayDirection = normalize(csToWorldMatrix * (csPosition + vec3(0.0, normalOffset, 0.0)));
+		prd.t = -1.0;
+		traceRayEXT(as, gl_RayFlagsOpaqueEXT, 0xFF, 0, 0, 0, wsCameraPos, 0.001, wsNormalRayDirection, 10000.0, 0);
+		vec3 wsPositionUp = wsCameraPos+wsNormalRayDirection*prd.t;
+		if (prd.t < 0.0)
+		{
+			wsPositionUp = wsPosition + wsCameraUp * 0.01;
+		}
+
+		vec3 wsNormal = cross(wsPositionRight-wsPosition, wsPositionUp-wsPosition);
+		float l = length(wsNormal) + 0.00001;
+		wsNormal /= l;
+		
+		// Compute lighting
+		vec3 proceduralColor = ComputeLighting(color, dotMaterial, wsPosition, wsNormal, wsCameraPos, wsRayDirection, hitTime, random, false);
+
+		// Mix depending of alpha
+		finalColor = mix(finalColor, proceduralColor, min(color.a, 1.0));
+	}
+	
+	// Compositor
+	uint frameId = globals.frameId % 2;
+	uint previousFrameId = (globals.frameId + 1) % 2;
+	uint bruteFrameId = globals.frameId % 2 + 2;
+	uint previousBruteFrameId = (globals.frameId + 1) % 2 + 2;
+	const vec2 resolution = vec2(RENDER_WIDTH, RENDER_HEIGHT);
+	const float bloomDiv = 32.0;
+	const vec2 bresolution = vec2(RENDER_WIDTH, RENDER_HEIGHT) * bloomDiv;
+	
+	// Bloom
+	const vec2 off1 = vec2(1.411764705882353);
+	const vec2 off2 = vec2(3.2941176470588234);
+	const vec2 off3 = vec2(5.176470588235294);
+	vec3 bloom = texture(samplerOutput[previousBruteFrameId], uv / bloomDiv).rgb * 0.1964825501511404;
+	bloom += texture(samplerOutput[previousBruteFrameId], uv / bloomDiv + off1 / bresolution).rgb * 0.2969069646728344;
+	bloom += texture(samplerOutput[previousBruteFrameId], uv / bloomDiv - off1 / bresolution).rgb * 0.2969069646728344;
+	bloom += texture(samplerOutput[previousBruteFrameId], uv / bloomDiv + off2 / bresolution).rgb * 0.09447039785044732;
+	bloom += texture(samplerOutput[previousBruteFrameId], uv / bloomDiv - off2 / bresolution).rgb * 0.09447039785044732;
+	bloom += texture(samplerOutput[previousBruteFrameId], uv / bloomDiv + off3 / bresolution).rgb * 0.010381362401148057;
+	bloom += texture(samplerOutput[previousBruteFrameId], uv / bloomDiv - off3 / bresolution).rgb * 0.010381362401148057;
+	
+	// Write brute frame
+	const float threshold = 1.0;
+	vec3 down = vec3(0.0);
+	vec3 ref = finalColor.rgb + bloom * 0.6;
+	float W = clamp((luma(ref) - threshold) / (1.0 - threshold), 0.0, 1.0);
+	down = ref;// * (W * W);
+	imageStore(outputRT[bruteFrameId], ivec2(gl_LaunchIDEXT.xy / bloomDiv), vec4(down, 1.0));
+	
+	finalColor += bloom * 0.2;
+	
+	// Tonemapping
+	finalColor = filmic(finalColor);
+	
+	// Cheap motion blur / aa
+	vec3 aa = vec3(0.0);
+	for (int j=0 ; j<3 ; ++j)
+	for (int i=0 ; i<3 ; ++i)
+	{
+		aa += texture(samplerOutput[previousFrameId], (gl_LaunchIDEXT.xy + vec2(i, j)  - 1) / resolution).rgb;
+	}
+	aa *= 1.0/9.0;
+	finalColor = mix(aa, finalColor, 0.5);
+
+	// Pasy gain
+	finalColor *= 1.25;
+	
+	// Scanline noise (remixed from Spiral)
+	float noiseAmount = 0.0;
+	if (globals.time < 30.0)
+	{
+		noiseAmount = 1.0 - pow((globals.time-9.6) / (30.0-9.6), 2.0);
+	}
+	else if (globals.time >= 67.2 && globals.time < 105.6)
+	{
+		noiseAmount = max(mod(globals.time-66.0, 4.80) - 1.5, 0.0);
+	}
+
+	if (noiseAmount > 0.0)
+	{
+		float bw = finalColor.x * 0.21 + finalColor.y * 0.72 + finalColor.z * 0.07;
+		vec3 baw = vec3(bw, bw, bw);
+		float mi = 1.0 + sin(globals.time) * 0.5 + 0.5;
+		finalColor = mix(finalColor * mi, baw, mod(gl_LaunchIDEXT.y+2, abs(4.0 * mi)) * noiseAmount);
+	}
+
+	if (globals.time >= 112.0 && globals.time <= 115)
+	{
+		float mi = 1.0 + sin(globals.time) * 0.5 + 0.5;
+		finalColor = mix(finalColor, vec3(finalColor.b*0.2, finalColor.b*0.2, finalColor.b), mod(gl_LaunchIDEXT.y, abs(4.0 * mi)));
+	}
+
+	if (globals.time >= 123.0 && globals.time <= 126)
+	{
+		float mi = 1.0 + sin(globals.time) * 0.5 + 0.5;
+		finalColor = mix(finalColor, vec3(finalColor.r, finalColor.r*0.2, finalColor.r*0.2), mod(gl_LaunchIDEXT.y, abs(4.0 * mi)));
+	}
+
+	// Fades out
+	if (globals.time < 9.6 || globals.time > 168.5)
+	{
+		finalColor *= 0.0;
+	}
+
+	imageStore(outputRT[frameId], ivec2(gl_LaunchIDEXT.xy), vec4(finalColor, 1.0));
+}

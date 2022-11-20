@@ -1,0 +1,94 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\prog\\intro\\music\\WaveSabre\\build\\Tests\\WaveSabreConvertTests\\WaveSabreConvertTests.csproj": {}
+  },
+  "projects": {
+    "D:\\prog\\intro\\music\\WaveSabre\\build\\Tests\\WaveSabreConvertTests\\WaveSabreConvertTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\prog\\intro\\music\\WaveSabre\\build\\Tests\\WaveSabreConvertTests\\WaveSabreConvertTests.csproj",
+        "projectName": "WaveSabreConvertTests",
+        "projectPath": "D:\\prog\\intro\\music\\WaveSabre\\build\\Tests\\WaveSabreConvertTests\\WaveSabreConvertTests.csproj",
+        "packagesPath": "C:\\Users\\skarab\\.nuget\\packages\\",
+        "outputPath": "D:\\prog\\intro\\music\\WaveSabre\\build\\Tests\\WaveSabreConvertTests\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\skarab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {
+              "D:\\prog\\intro\\music\\WaveSabre\\build\\WaveSabreConvert\\WaveSabreConvert.csproj": {
+                "projectPath": "D:\\prog\\intro\\music\\WaveSabre\\build\\WaveSabreConvert\\WaveSabreConvert.csproj"
+              },
+              "D:\\prog\\intro\\music\\WaveSabre\\build\\ZERO_CHECK.vcxproj": {
+                "projectPath": "D:\\prog\\intro\\music\\WaveSabre\\build\\ZERO_CHECK.vcxproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\prog\\intro\\music\\WaveSabre\\build\\WaveSabreConvert\\WaveSabreConvert.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\prog\\intro\\music\\WaveSabre\\build\\WaveSabreConvert\\WaveSabreConvert.csproj",
+        "projectName": "WaveSabreConvert",
+        "projectPath": "D:\\prog\\intro\\music\\WaveSabre\\build\\WaveSabreConvert\\WaveSabreConvert.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    },
+    "D:\\prog\\intro\\music\\WaveSabre\\build\\ZERO_CHECK.vcxproj": {
+      "restore": {
+        "projectUniqueName": "D:\\prog\\intro\\music\\WaveSabre\\build\\ZERO_CHECK.vcxproj",
+        "projectName": "ZERO_CHECK",
+        "projectPath": "D:\\prog\\intro\\music\\WaveSabre\\build\\ZERO_CHECK.vcxproj",
+        "frameworks": {
+          "native": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "native": {}
+      }
+    }
+  }
+}

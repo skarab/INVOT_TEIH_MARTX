@@ -1,0 +1,10 @@
+﻿  Building Custom Rule D:/prog/intro/music/WaveSabre/WaveSabrePlayerLib/CMakeLists.txt
+  CriticalSection.cpp
+  DirectSoundRenderThread.cpp
+  IPlayer.cpp
+  PreRenderPlayer.cpp
+  RealtimePlayer.cpp
+  SongRenderer.cpp
+  SongRenderer.Track.cpp
+  WavWriter.cpp
+  WaveSabrePlayerLib.vcxproj -> D:\prog\intro\music\WaveSabre\build\WaveSabrePlayerLib\MinSizeRel\WaveSabrePlayerLib.lib
