@@ -39,19 +39,6 @@ layout(set = 0, binding = 5, rgba8) uniform image3D textures[4];
 layout(set = 0, binding = 6) uniform sampler3D samplers[4];
 layout(set = 0, binding = 7, scalar) buffer dots_ { uvec3 dots[]; };
 
-// Filmic Tonemapping Operators http://filmicworlds.com/blog/filmic-tonemapping-operators/
-vec3 filmic(vec3 x)
-{
-	vec3 X = max(vec3(0.0), x - 0.004);
-	vec3 result = (X * (6.2 * X + 0.5)) / (X * (6.2 * X + 1.7) + 0.06);
-	return pow(result, vec3(2.2));
-}
-
-float luma(const vec3 color)
-{
-	return dot(color, vec3(0.299, 0.587, 0.114));
-}
-
 // Noise from some shadertoy, surely IQ
 float rand(vec2 n)
 { 
@@ -68,7 +55,7 @@ float noise(vec2 n)
 // Exterior is just a sphere and a floor, a bit distorted, could be animated as well but no time..
 void sampleExterior(const vec3 wsRayPosition, vec3 wsRayDirection, out vec3 wsPosition, out vec3 wsNormal, out vec4 exteriorColor, out vec2 exteriorMaterial)
 {
-	if ((globals.time >= 112.0 && globals.time <= 115) || (globals.time >= 123.0 && globals.time <= 126))
+	if ((globals.time >= 112.0 && globals.time <= 115.5) || (globals.time >= 123.0 && globals.time <= 126.5))
 	{
 		wsRayDirection.z *= 1.3;
 	}
@@ -113,6 +100,7 @@ void sampleExterior(const vec3 wsRayPosition, vec3 wsRayDirection, out vec3 wsPo
 
 vec3 lightDirections[LIGHT_COUNT];
 vec3 lightColors[LIGHT_COUNT];
+int lightCount;
 
 vec4 ComputeReflection(const vec2 material, const vec3 wsPosition, const vec3 wsNormal, const vec3 wsRayDirection, const vec2 random, const bool isExterior)
 {
@@ -138,7 +126,7 @@ vec4 ComputeReflection(const vec2 material, const vec3 wsPosition, const vec3 ws
 	
 		if (isExterior)
 		{
-			reflection.a *= 2.0;
+			reflection.a *= 1.0 + lightCount * 0.5;
 		}
 	}
 
@@ -262,12 +250,6 @@ vec3 ComputeLighting(const vec4 baseColor, const vec2 material, const vec3 wsPos
 
 void main()
 {
-	float blurAmount = 0.0;
-	if (globals.time>=9.6 && globals.time<16.0)
-	{
-		blurAmount = pow((1.0 - (globals.time-9.6) / (16.0-9.6)), 8.0) * 40.0;
-	}
-
 	const float animSpeed = 0.5;
 	const float startBlendDots = 80.0;
 	
@@ -397,7 +379,7 @@ void main()
 		imageStore(textures[texWriteId], ivec3(dotPosition), color);
 	}
 
-	if (globals.time>startBlendDots)
+	if (globals.time > startBlendDots)
 	{
 		globalsTime = globals.time * animSpeed;
 	}	
@@ -417,6 +399,12 @@ void main()
 	csPosition.y *= float(gl_LaunchSizeEXT.y) / float(gl_LaunchSizeEXT.x);
 	vec3 wsRayDirection = normalize(csToWorldMatrix * csPosition);
 
+	float blurAmount = 0.0;
+	if (globals.time >= 9.6 && globals.time < 16.0)
+	{
+		blurAmount = pow((1.0 - (globals.time-9.6) / (16.0-9.6)), 8.0) * 40.0;
+	}
+
 	const vec3 blurOffset = mix(mix(-wsCameraUp, wsCameraUp, random.x), mix(-wsCameraRight, wsCameraRight, random.x), random.y) * blurAmount;
 	wsRayDirection = normalize(wsRayDirection + blurOffset);
 	
@@ -428,7 +416,7 @@ void main()
 	sampleExterior(wsCameraPos, wsRayDirection, wsExteriorPosition, wsExteriorNormal, exteriorColor, exteriorMaterial);
 
 	// Animate lights
-	int lightCount = int(clamp(abs(sin(globalsTime * 0.01)) * LIGHT_COUNT, 1, LIGHT_COUNT));
+	lightCount = int(clamp(abs(sin(globalsTime * 0.01)) * LIGHT_COUNT, 1, LIGHT_COUNT));
 	if (globals.time >= 48.0 && globals.time < 67.2)
 	{
 		lightCount = LIGHT_COUNT;
@@ -437,7 +425,8 @@ void main()
 	{
 		float id = i/float(LIGHT_COUNT);
 		lightDirections[i] = normalize(vec3(sin(globalsTime * 0.3 * (id+0.1) + id * 3.0) * 3.0, sin(cos(globalsTime * 0.6 + id * 4.0)), cos(globalsTime * 0.5 * (id+0.1) + id * 3.0) * 3.0));
-		
+		lightColors[i] = vec3(0);
+
 		if (i<lightCount)
 		{
 			lightColors[i] = vec3(sin(i*3.0/12.0) * 0.5 + 0.5, cos(i*3.0/12.0) * 0.5 + 0.5, sin(i*8.0/12.0) * 0.4 + 0.6);
@@ -446,10 +435,6 @@ void main()
 			{
 				lightColors[i] = vec3(1);
 			}
-		}
-		else
-		{
-			lightColors[i] = vec3(0);
 		}
 	}
 
@@ -510,10 +495,7 @@ void main()
 			wsPositionUp = wsPosition + wsCameraUp * 0.01;
 		}
 
-		// NOTE: may surely be a normalize, added this to debug when reached shader limit..
-		vec3 wsNormal = cross(wsPositionRight-wsPosition, wsPositionUp-wsPosition);
-		float l = length(wsNormal) + 0.00001;
-		wsNormal /= l;
+		vec3 wsNormal = normalize(cross(wsPositionRight-wsPosition, wsPositionUp-wsPosition));
 		
 		// Compute lighting
 		vec3 proceduralColor = ComputeLighting(color, dotMaterial, wsPosition, wsNormal, wsCameraPos, wsRayDirection, hitTime, random, false);
@@ -523,10 +505,10 @@ void main()
 	}
 	
 	// Compositor
-	uint frameId = globals.frameId % 2;
-	uint previousFrameId = (globals.frameId + 1) % 2;
-	uint bruteFrameId = globals.frameId % 2 + 2;
-	uint previousBruteFrameId = (globals.frameId + 1) % 2 + 2;
+	const uint frameId = globals.frameId % 2;
+	const uint previousFrameId = (globals.frameId + 1) % 2;
+	const uint bruteFrameId = globals.frameId % 2 + 2;
+	const uint previousBruteFrameId = (globals.frameId + 1) % 2 + 2;
 	const vec2 resolution = vec2(RENDER_WIDTH, RENDER_HEIGHT);
 	const float bloomDiv = 32.0;
 	const vec2 bresolution = vec2(RENDER_WIDTH, RENDER_HEIGHT) * bloomDiv;
@@ -535,26 +517,28 @@ void main()
 	const vec2 off1 = vec2(1.411764705882353);
 	const vec2 off2 = vec2(3.2941176470588234);
 	const vec2 off3 = vec2(5.176470588235294);
-	vec3 bloom = texture(samplerOutput[previousBruteFrameId], uv / bloomDiv).rgb * 0.1964825501511404;
-	bloom += texture(samplerOutput[previousBruteFrameId], uv / bloomDiv + off1 / bresolution).rgb * 0.2969069646728344;
-	bloom += texture(samplerOutput[previousBruteFrameId], uv / bloomDiv - off1 / bresolution).rgb * 0.2969069646728344;
-	bloom += texture(samplerOutput[previousBruteFrameId], uv / bloomDiv + off2 / bresolution).rgb * 0.09447039785044732;
-	bloom += texture(samplerOutput[previousBruteFrameId], uv / bloomDiv - off2 / bresolution).rgb * 0.09447039785044732;
-	bloom += texture(samplerOutput[previousBruteFrameId], uv / bloomDiv + off3 / bresolution).rgb * 0.010381362401148057;
-	bloom += texture(samplerOutput[previousBruteFrameId], uv / bloomDiv - off3 / bresolution).rgb * 0.010381362401148057;
+	const vec2 bloomUv = uv / bloomDiv;
+	vec3 bloom = texture(samplerOutput[previousBruteFrameId], bloomUv).rgb * 0.1964825501511404;
+	bloom += texture(samplerOutput[previousBruteFrameId], bloomUv + off1 / bresolution).rgb * 0.2969069646728344;
+	bloom += texture(samplerOutput[previousBruteFrameId], bloomUv - off1 / bresolution).rgb * 0.2969069646728344;
+	bloom += texture(samplerOutput[previousBruteFrameId], bloomUv + off2 / bresolution).rgb * 0.09447039785044732;
+	bloom += texture(samplerOutput[previousBruteFrameId], bloomUv - off2 / bresolution).rgb * 0.09447039785044732;
+	bloom += texture(samplerOutput[previousBruteFrameId], bloomUv + off3 / bresolution).rgb * 0.010381362401148057;
+	bloom += texture(samplerOutput[previousBruteFrameId], bloomUv - off3 / bresolution).rgb * 0.010381362401148057;
 	
 	// Write brute frame
-	const float threshold = 1.0;
-	vec3 down = vec3(0.0);
-	vec3 ref = finalColor.rgb + bloom * 0.6;
-	float W = clamp((luma(ref) - threshold) / (1.0 - threshold), 0.0, 1.0);
-	down = ref;// * (W * W);
-	imageStore(outputRT[bruteFrameId], ivec2(gl_LaunchIDEXT.xy / bloomDiv), vec4(down, 1.0));
+	imageStore(outputRT[bruteFrameId], ivec2(gl_LaunchIDEXT.xy / bloomDiv), vec4(finalColor.rgb + bloom * 0.6, 1.0));
 	
+	// Fades out
+	if (globals.time < 9.6 || globals.time > 168.5)
+	{
+		finalColor *= 0.0;
+	}
+
 	finalColor += bloom * 0.2;
 	
-	// Tonemapping
-	finalColor = filmic(finalColor);
+	// Filmic Tonemapping Operators http://filmicworlds.com/blog/filmic-tonemapping-operators/
+	finalColor = pow((finalColor * (6.2 * finalColor + 0.5)) / (finalColor * (6.2 * finalColor + 1.7) + 0.06), vec3(2.2));
 	
 	// Cheap motion blur / aa
 	vec3 aa = vec3(0.0);
@@ -573,37 +557,28 @@ void main()
 	float noiseAmount = 0.0;
 	if (globals.time < 30.0)
 	{
-		noiseAmount = 1.0 - pow((globals.time-9.6) / (30.0-9.6), 2.0);
+		noiseAmount = globals.time / 30.0;
 	}
-	else if (globals.time >= 67.2 && globals.time < 105.6)
+	if (globals.time >= 67.2 && globals.time < 105.6)
 	{
-		noiseAmount = max(mod(globals.time-66.0, 4.80) - 1.5, 0.0);
+		noiseAmount = max(mod(globals.time-66.0, 3.60) - 1.5, 0.0);
 	}
 
 	if (noiseAmount > 0.0)
 	{
-		float bw = finalColor.x * 0.21 + finalColor.y * 0.72 + finalColor.z * 0.07;
-		vec3 baw = vec3(bw, bw, bw);
+		vec3 baw = vec3(finalColor.x * 0.21 + finalColor.y * 0.72 + finalColor.z * 0.07);
 		float mi = 1.0 + sin(globals.time) * 0.5 + 0.5;
 		finalColor = mix(finalColor * mi, baw, mod(gl_LaunchIDEXT.y+2, abs(4.0 * mi)) * noiseAmount);
 	}
-
-	if (globals.time >= 112.0 && globals.time <= 115)
+	else if (globals.time >= 111.5 && globals.time <= 115.0)
 	{
 		float mi = 1.0 + sin(globals.time) * 0.5 + 0.5;
 		finalColor = mix(finalColor, vec3(finalColor.b*0.2, finalColor.b*0.2, finalColor.b), mod(gl_LaunchIDEXT.y, abs(4.0 * mi)));
 	}
-
-	if (globals.time >= 123.0 && globals.time <= 126)
+	else if (globals.time >= 122.0 && globals.time <= 126.0)
 	{
 		float mi = 1.0 + sin(globals.time) * 0.5 + 0.5;
 		finalColor = mix(finalColor, vec3(finalColor.r, finalColor.r*0.2, finalColor.r*0.2), mod(gl_LaunchIDEXT.y, abs(4.0 * mi)));
-	}
-
-	// Fades out
-	if (globals.time < 9.6 || globals.time > 168.5)
-	{
-		finalColor *= 0.0;
 	}
 
 	imageStore(outputRT[frameId], ivec2(gl_LaunchIDEXT.xy), vec4(finalColor, 1.0));

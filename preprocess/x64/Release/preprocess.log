@@ -1,6 +1,0 @@
-﻿  preprocess.cpp
-  Generating code
-  Previous IPDB not found, fall back to full compilation.
-  All 271 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  preprocess.vcxproj -> D:\prog\intro\code\x64\Release\preprocess.exe

@@ -1,5 +1,5 @@
-#define RENDER_WIDTH 1920
-#define RENDER_HEIGHT 1080
+#define RENDER_WIDTH 2560
+#define RENDER_HEIGHT 1440
 
 #define MAX_RAYS 12
 #define SHADOW_MAX_RAYS 4
@@ -25,7 +25,7 @@
 #define BOUNDS 350.0
 #define AABB_BOUNDS (BOUNDS / AABBS_SIZE)
 
-#define RAY_MARCHING_SAMPLE_COUNT 8
+#define RAY_MARCHING_SAMPLE_COUNT 8 //(8*RENDER_HEIGHT/1080) << crash in quad HD, shader limit reached to the max.
 
 #define LIGHT_COUNT 6
 

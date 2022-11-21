@@ -47,12 +47,6 @@ void main()
 	uint aabbId = gl_PrimitiveID + ((globals.frameId + 1) % 2) * AABBS_COUNT;
 	AABB aabb = aabbs[aabbId];
 	
-	/* Not sure if should try to skip it here, didn't gived any performance gain.
-	if (aabb.minimum.x <= -1000000.0)
-	{
-		return;
-	}*/
-
 	float tnear, tfar;
 	rayBoxIntersect(gl_WorldRayOriginEXT, gl_WorldRayDirectionEXT, aabb.minimum, aabb.maximum, tnear, tfar);
 

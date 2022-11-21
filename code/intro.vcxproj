@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Master|x64">
+      <Configuration>Master</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{ffef21f7-5f4f-49ad-accb-a36bbcd7ead0}</ProjectGuid>
+    <RootNamespace>intro</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Master|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Master|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ExecutablePath>$(SolutionDir);$(ExecutablePath)</ExecutablePath>
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>..\bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Master|x64'">
+    <ExecutablePath>$(SolutionDir);$(ExecutablePath)</ExecutablePath>
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>..\bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\bin\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>VK_ENABLE_BETA_EXTENSIONS;VK_USE_PLATFORM_WIN32_KHR;_DEBUG;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\VulkanSDK\1.3.224.1\Include;..\music\WaveSabre\WaveSabrePlayerLib\include;..\music\WaveSabre\WaveSabreCore\include;..\music\WaveSabre\Tests\PlayerTest;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <LanguageStandard>Default</LanguageStandard>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>msvcrt.lib;ucrt.lib;vcruntime.lib;opengl32.lib;C:\VulkanSDK\1.3.224.1\Lib\vulkan-1.lib;kernel32.lib;user32.lib;shell32.lib;gdi32.lib;..\music\WaveSabre\build\WaveSabreCore\MinSizeRel\WaveSabreCore.lib;..\music\WaveSabre\build\WaveSabrePlayerLib\MinSizeRel\WaveSabrePlayerLib.lib;dsound.lib;Msacm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <EntryPointSymbol>main</EntryPointSymbol>
+    </Link>
+    <PreBuildEvent>
+      <Command>C:\VulkanSDK\1.3.224.1\Bin\glslc.exe shader.rgen -o rgen.spv --target-spv=spv1.4
+C:\VulkanSDK\1.3.224.1\Bin\glslc.exe shader.rint -o rint.spv --target-spv=spv1.4
+C:\VulkanSDK\1.3.224.1\Bin\glslc.exe shader.rchit -o rchit.spv --target-spv=spv1.4
+x64\Debug\preprocess.exe</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>VK_ENABLE_BETA_EXTENSIONS;VK_USE_PLATFORM_WIN32_KHR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\VulkanSDK\1.3.224.1\Include;..\music\WaveSabre\WaveSabrePlayerLib\include;..\music\WaveSabre\WaveSabreCore\include;..\music\WaveSabre\Tests\PlayerTest;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <ExceptionHandling>false</ExceptionHandling>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>msvcrt.lib;ucrt.lib;vcruntime.lib;opengl32.lib;C:\VulkanSDK\1.3.224.1\Lib\vulkan-1.lib;kernel32.lib;user32.lib;shell32.lib;gdi32.lib;..\music\WaveSabre\build\WaveSabreCore\MinSizeRel\WaveSabreCore.lib;..\music\WaveSabre\build\WaveSabrePlayerLib\MinSizeRel\WaveSabrePlayerLib.lib;dsound.lib;Msacm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>C:\VulkanSDK\1.3.224.1\Bin\glslc.exe shader.rgen -o rgen.spv --target-spv=spv1.4
+C:\VulkanSDK\1.3.224.1\Bin\glslc.exe shader.rint -o rint.spv --target-spv=spv1.4
+C:\VulkanSDK\1.3.224.1\Bin\glslc.exe shader.rchit -o rchit.spv --target-spv=spv1.4
+x64\Debug\preprocess.exe</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Master|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>VK_ENABLE_BETA_EXTENSIONS;VK_USE_PLATFORM_WIN32_KHR;_NO_CRT_STDIO_INLINE;NDEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\VulkanSDK\1.3.224.1\Include;..\music\WaveSabre\WaveSabrePlayerLib\include;..\music\WaveSabre\WaveSabreCore\include;..\music\WaveSabre\Tests\PlayerTest;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <ExceptionHandling>false</ExceptionHandling>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>msvcrt.lib;ucrt.lib;vcruntime.lib;opengl32.lib;C:\VulkanSDK\1.3.224.1\Lib\vulkan-1.lib;kernel32.lib;user32.lib;shell32.lib;gdi32.lib;..\music\WaveSabre\build\WaveSabreCore\MinSizeRel\WaveSabreCore.lib;..\music\WaveSabre\build\WaveSabrePlayerLib\MinSizeRel\WaveSabrePlayerLib.lib;dsound.lib;Msacm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>main</EntryPointSymbol>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /y ..\bin\intro.exe ..\bin\intro_raw.exe
+copy /y ..\bin\intro.exe ..\bin\intro_upx.exe
+..\compressors\upx-3.96-win64\upx.exe --ultra-brute ..\bin\intro_upx.exe
+..\compressors\squishy-0.2.0\squishy-x64.exe -i ..\bin\intro_raw.exe -o ..\bin\intro.exe
+</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>C:\VulkanSDK\1.3.224.1\Bin\glslc.exe shader.rgen -o rgen.spv --target-spv=spv1.5 --target-env=vulkan1.2 -Os
+C:\VulkanSDK\1.3.224.1\Bin\glslc.exe shader.rint -o rint.spv --target-spv=spv1.5 --target-env=vulkan1.2 -Os
+C:\VulkanSDK\1.3.224.1\Bin\glslc.exe shader.rchit -o rchit.spv --target-spv=spv1.5 --target-env=vulkan1.2 -Os
+x64\Debug\preprocess.exe</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="GL\glext.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="defines.h" />
+    <ClInclude Include="GL\glcustom.h" />
+    <ClInclude Include="GL\glext.h" />
+    <ClInclude Include="GL\glsubset.h" />
+    <ClInclude Include="GL\wgl.h" />
+    <ClInclude Include="KHR\khrplatform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader.rchit" />
+    <None Include="shader.rgen" />
+    <None Include="shader.rint" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

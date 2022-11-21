@@ -1,1 +1,0 @@
-upx.exe --ultra-brute intro.exe
