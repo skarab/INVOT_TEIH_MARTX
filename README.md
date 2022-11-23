@@ -2,6 +2,8 @@
 
 vulkan gl interop nv rtx intro
 
+51Kb vulkan GL interop, x64, requires nvidia rtx (8Gb / 3070 minimum)
+
 build with visual studio 2019
 requires vulkan sdk 1.3.224.1
 & maybe directx sdk?
