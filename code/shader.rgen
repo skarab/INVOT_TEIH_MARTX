@@ -126,7 +126,7 @@ vec4 ComputeReflection(const vec2 material, const vec3 wsPosition, const vec3 ws
 	
 		if (isExterior)
 		{
-			reflection.a *= 1.0 + lightCount * 0.5;
+			reflection.a *= 0.8 + lightCount * 0.15;
 		}
 	}
 
@@ -549,9 +549,6 @@ void main()
 	}
 	aa *= 1.0/9.0;
 	finalColor = mix(aa, finalColor, 0.5);
-
-	// Pasy gain
-	finalColor *= 1.25;
 	
 	// Scanline noise (remixed from Spiral)
 	float noiseAmount = 0.0;

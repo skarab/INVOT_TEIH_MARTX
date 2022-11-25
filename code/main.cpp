@@ -816,7 +816,7 @@ int main()
 		int hundredths = (int)(songPos * 100.0) % 100;
 
 		globals.time = songPos + 0.006f;
-
+		
 		// Animate cameras
 		// NOTE: it was in the shader, but reached maximum something so needed to put it here
 		const int cameraId = int((globals.time - 0.255) * 100.0 / 360.0) % 3;

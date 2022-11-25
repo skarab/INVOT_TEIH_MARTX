@@ -1,0 +1,133 @@
+﻿  glext.cpp
+  main.cpp
+D:\prog\intro\repository\code\main.cpp(153,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\prog\intro\repository\code\main.cpp(173,47): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\prog\intro\repository\code\main.cpp(818,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\prog\intro\repository\code\main.cpp(823,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\prog\intro\repository\code\main.cpp(834,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\prog\intro\repository\code\main.cpp(836,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\prog\intro\repository\code\main.cpp(840,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\prog\intro\repository\code\main.cpp(846,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\prog\intro\repository\code\main.cpp(847,51): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\prog\intro\repository\code\main.cpp(848,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  WaveSabreCore.lib(Falcon.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+  Generating code
+  Finished generating code
+  intro.vcxproj -> D:\prog\intro\repository\bin\intro.exe
+          1 file(s) copied.
+          1 file(s) copied.
+                         Ultimate Packer for eXecutables
+                            Copyright (C) 1996 - 2020
+  UPX 3.96w       Markus Oberhumer, Laszlo Molnar & John Reiser   Jan 23rd 2020
+  
+          File size         Ratio      Format      Name
+     --------------------   ------   -----------   -----------
+      220160 ->     66560   30.23%    win64/pe     intro_upx.exe
+  
+  Packed 1 file.
+  squishy 0.2.0 | made with <3 by Jake "ferris" Taylor / logicoma 2016-2021
+  
+   - doin me a heckin squish ... 0%
+   - doin me a heckin squish ... 1%
+   - doin me a heckin squish ... 2%
+   - doin me a heckin squish ... 3%
+   - doin me a heckin squish ... 4%
+   - doin me a heckin squish ... 5%
+   - doin me a heckin squish ... 6%
+   - doin me a heckin squish ... 7%
+   - doin me a heckin squish ... 8%
+   - doin me a heckin squish ... 9%
+   - doin me a heckin squish ... 10%
+   - doin me a heckin squish ... 11%
+   - doin me a heckin squish ... 12%
+   - doin me a heckin squish ... 13%
+   - doin me a heckin squish ... 14%
+   - doin me a heckin squish ... 15%
+   - doin me a heckin squish ... 16%
+   - doin me a heckin squish ... 17%
+   - doin me a heckin squish ... 18%
+   - doin me a heckin squish ... 19%
+   - doin me a heckin squish ... 20%
+   - doin me a heckin squish ... 21%
+   - doin me a heckin squish ... 22%
+   - doin me a heckin squish ... 23%
+   - doin me a heckin squish ... 24%
+   - doin me a heckin squish ... 25%
+   - doin me a heckin squish ... 26%
+   - doin me a heckin squish ... 27%
+   - doin me a heckin squish ... 28%
+   - doin me a heckin squish ... 29%
+   - doin me a heckin squish ... 30%
+   - doin me a heckin squish ... 31%
+   - doin me a heckin squish ... 32%
+   - doin me a heckin squish ... 33%
+   - doin me a heckin squish ... 34%
+   - doin me a heckin squish ... 35%
+   - doin me a heckin squish ... 36%
+   - doin me a heckin squish ... 37%
+   - doin me a heckin squish ... 38%
+   - doin me a heckin squish ... 39%
+   - doin me a heckin squish ... 40%
+   - doin me a heckin squish ... 41%
+   - doin me a heckin squish ... 42%
+   - doin me a heckin squish ... 43%
+   - doin me a heckin squish ... 44%
+   - doin me a heckin squish ... 45%
+   - doin me a heckin squish ... 46%
+   - doin me a heckin squish ... 47%
+   - doin me a heckin squish ... 48%
+   - doin me a heckin squish ... 49%
+   - doin me a heckin squish ... 50%
+   - doin me a heckin squish ... 51%
+   - doin me a heckin squish ... 52%
+   - doin me a heckin squish ... 53%
+   - doin me a heckin squish ... 54%
+   - doin me a heckin squish ... 55%
+   - doin me a heckin squish ... 56%
+   - doin me a heckin squish ... 57%
+   - doin me a heckin squish ... 58%
+   - doin me a heckin squish ... 59%
+   - doin me a heckin squish ... 60%
+   - doin me a heckin squish ... 61%
+   - doin me a heckin squish ... 62%
+   - doin me a heckin squish ... 63%
+   - doin me a heckin squish ... 64%
+   - doin me a heckin squish ... 65%
+   - doin me a heckin squish ... 66%
+   - doin me a heckin squish ... 67%
+   - doin me a heckin squish ... 68%
+   - doin me a heckin squish ... 69%
+   - doin me a heckin squish ... 70%
+   - doin me a heckin squish ... 71%
+   - doin me a heckin squish ... 72%
+   - doin me a heckin squish ... 73%
+   - doin me a heckin squish ... 74%
+   - doin me a heckin squish ... 75%
+   - doin me a heckin squish ... 76%
+   - doin me a heckin squish ... 77%
+   - doin me a heckin squish ... 78%
+   - doin me a heckin squish ... 79%
+   - doin me a heckin squish ... 80%
+   - doin me a heckin squish ... 81%
+   - doin me a heckin squish ... 82%
+   - doin me a heckin squish ... 83%
+   - doin me a heckin squish ... 84%
+   - doin me a heckin squish ... 85%
+   - doin me a heckin squish ... 86%
+   - doin me a heckin squish ... 87%
+   - doin me a heckin squish ... 88%
+   - doin me a heckin squish ... 89%
+   - doin me a heckin squish ... 90%
+   - doin me a heckin squish ... 91%
+   - doin me a heckin squish ... 92%
+   - doin me a heckin squish ... 93%
+   - doin me a heckin squish ... 94%
+   - doin me a heckin squish ... 95%
+   - doin me a heckin squish ... 99%
+   - doin me a heckin squish ... 100%
+   - big squish:  238996 -> 49239 (79.40%) in 3.19s (~73.10kb/s)
+   - time for a lil smol squish (kawaii desu)
+   - smol squish: 2677 -> 1982 (25.96%) in 0.11s (~23.82kb/s)
+   - final size (unpadded): 51979
+   - final size (padded):   52224 (76.28%)
+  hope you like your shiny new bytes <3
